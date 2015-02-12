@@ -5,8 +5,18 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 	
 	var numberOfGuests = 4;
+	
+	var selectedDishes = { 'starter' : 1, 'main course':100, 'dessert':200 } ;
+	
+	//old version
+	/*
 	var selectedDishes = {
-		'starter':{'id':1,'ingredients':[{ 
+		'starter':{'id':1,
+		'name':'French toast',
+		'type':'starter',
+		'image':'toast.jpg',
+		'description':"In a large mixing bowl, beat the eggs. Add the milk, brown sugar and nutmeg; stir well to combine. Soak bread slices in the egg mixture until saturated. Heat a lightly oiled griddle or frying pan over medium high heat. Brown slices on both sides, sprinkle with cinnamon and serve hot.",
+		'ingredients':[{ 
 			'name':'eggs',
 			'quantity':0.5,
 			'unit':'',
@@ -87,6 +97,8 @@ var DinnerModel = function() {
 		
 		}};
 		
+		*/
+		
 	
 
 
@@ -123,14 +135,37 @@ var DinnerModel = function() {
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
 		var ingredients = new Array();
-		$.each(selectedDishes, function(index, dish) {
-			ingredients.push(dish['ingredients']);
+		
+		// debug
+		//var ingredient = this.getDish(1)['ingredients'];
+		//alert(JSON.stringify(ingredient));
+		//var count = 0;
+		
+		$.each(selectedDishes, function(index, id) {
+			//debug
+			//count++;
+			//alert("loop nr " + count);
+			for(key in dishes){
+				if(dishes[key].id == id) {
+				dishIngredients = dishes[key]['ingredients'];
+				// debug
+				//alert(JSON.stringify(dishes[key]['ingredients']));
+				}
+			}
+			ingredients.push(dishIngredients);
+		
+			/*
+			var thething = this.getDish(id)['ingredients'];
+			ingredients.push( thething );
+			*/
 		});
+		
 		
 		return ingredients;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
+	
 	this.getTotalMenuPrice = function() {
 		var totalPrice = 0;
 		var ingredients = this.getAllIngredients();
@@ -148,12 +183,33 @@ var DinnerModel = function() {
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		//TODO Lab 2 
+		selectedDishes[ this.getDish(id)['type'] ] = id;
+		
+		//old version
+		/*
+		var dishToAdd = $(dishes).filter(function(index,dish) {
+			return dish.id == id;
+		});
+		
+		selectedDishes[dishToAdd[0]['type']] = dishToAdd[0];
+		*/
+		
+		// debug
+		//alert(JSON.stringify( selectedDishes[ dishToAdd[0]['type'] ]) );
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
-		//TODO Lab 2
+		selectedDishes[getDish(id)['type'] ] = 0;
+		
+		//old version
+		/*
+		var dishToRemove = $(dishes).filter(function(index,dish) {
+			return dish.id == id;
+		});
+		
+		selectedDishes[ dishToRemove[0]['type'] ] = {};
+		*/
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
@@ -186,8 +242,6 @@ var DinnerModel = function() {
 			}
 		}
 	}
-
-	var testarray = [{'id':1,'type':'starter'},{'id':1,'type':'main course'}];
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,
