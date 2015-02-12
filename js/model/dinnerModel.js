@@ -5,11 +5,94 @@ var DinnerModel = function() {
 	// and selected dinner options for dinner menu
 	
 	var numberOfGuests = 4;
-	var selectedDishes;
+	var selectedDishes = {
+		'starter':{'id':1,'ingredients':[{ 
+			'name':'eggs',
+			'quantity':0.5,
+			'unit':'',
+			'price':10
+			},{
+			'name':'milk',
+			'quantity':30,
+			'unit':'ml',
+			'price':6
+			},{
+			'name':'brown sugar',
+			'quantity':7,
+			'unit':'g',
+			'price':1
+			},{
+			'name':'ground nutmeg',
+			'quantity':0.5,
+			'unit':'g',
+			'price':12
+			},{
+			'name':'white bread',
+			'quantity':2,
+			'unit':'slices',
+			'price':2
+			}]},
+		'main dish':{'id':2,'ingredients':[{ 
+			'name':'eggs',
+			'quantity':0.5,
+			'unit':'',
+			'price':10
+			},{
+			'name':'milk',
+			'quantity':30,
+			'unit':'ml',
+			'price':6
+			},{
+			'name':'brown sugar',
+			'quantity':7,
+			'unit':'g',
+			'price':1
+			},{
+			'name':'ground nutmeg',
+			'quantity':0.5,
+			'unit':'g',
+			'price':12
+			},{
+			'name':'white bread',
+			'quantity':2,
+			'unit':'slices',
+			'price':2
+			}]},
+		'dessert':{'id':3,'ingredients':[{ 
+			'name':'eggs',
+			'quantity':0.5,
+			'unit':'',
+			'price':10
+			},{
+			'name':'milk',
+			'quantity':30,
+			'unit':'ml',
+			'price':6
+			},{
+			'name':'brown sugar',
+			'quantity':7,
+			'unit':'g',
+			'price':1
+			},{
+			'name':'ground nutmeg',
+			'quantity':0.5,
+			'unit':'g',
+			'price':12
+			},{
+			'name':'white bread',
+			'quantity':2,
+			'unit':'slices',
+			'price':2
+			}]
+		
+		}};
+		
+	
 
 
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
+		alert(num);
 	}
 
 	// should return 
@@ -20,27 +103,46 @@ var DinnerModel = function() {
 	//Returns the dish that is on the menu for selected type 
 	
 	this.getSelectedDish = function(type) {
+	
+	/*
 	var jQueryObject = $(dishes).filter(function(index,dish) {
 			return dish.type === type;
 			});
 		
 		return jQueryObject[0];
+	*/
+	return selectedDishes[type];
 		
 	}
 
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
-		return dishes;
+		return selectedDishes;
 	}
 
 	//Returns all ingredients for all the dishes on the menu.
 	this.getAllIngredients = function() {
-		//TODO Lab 2
+		var ingredients = new Array();
+		$.each(selectedDishes, function(index, dish) {
+			ingredients.push(dish['ingredients']);
+		});
+		
+		return ingredients;
 	}
 
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	this.getTotalMenuPrice = function() {
-		//TODO Lab 2
+		var totalPrice = 0;
+		var ingredients = this.getAllIngredients();
+		
+		$.each(ingredients, function(index, ingredientList) {
+			
+			$.each(ingredientList, function(ind, ingredient) {
+				totalPrice += ingredient['price'];
+			});
+			
+		});
+		return totalPrice;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
