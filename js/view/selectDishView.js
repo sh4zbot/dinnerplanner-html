@@ -3,41 +3,36 @@ $(function() {
 	var SelectDishView = function (container,model) {
 
 	this.dishList = container.find("#dishList");
+	var dishList = this.dishList[0];
+	
+	//get the Persons input field and set the value from dinnerModel.js
+	this.numberOfGuests = container.find("#numberOfGuests");
+	var numberOfGuests = this.numberOfGuests[0];
+	numberOfGuests.value = model.getNumberOfGuests();
 	
 	var allDishes = model.getAllDishes('main dish');
-	var dishes = new Array;
 	var names = new Array;
 	var images = new Array;
 	var descriptions = new Array;
 	
 	//get names, images and description
-	$.each(allDishes, function(index, dish) {
-		
+	$.each(allDishes, function(index, dish) {		
 		names.push(dish.name);
 		images.push(dish.image);
-		descriptions.push(dish.description);
-		
-		dishes.push(dish);
-		});
+		descriptions.push(dish.description);		
+	});
 	
-	var dishList = this.dishList[0];
-	
+	//create table
 	var table = document.createElement('table');
-	table.className += 'table table-condensed table-hover';
-	
-	// Create an empty <tr> element and add it to the 1st position of the table:
+	table.className += 'table';
 	var row = table.insertRow(0);
-
-	// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
 	var cell = new Array;
 	for (i = 0; i < names.length; i++) {
-		
 		cell[i] = row.insertCell(i);
 		cell[i].innerHTML = "<img src='images/" + images[i] + "' height='140' width='80'>" + "<h4>" + 
 			names[i] + "</h4>" + "<br/>" + "<h5>" + descriptions[i] + "</h5>";
 	}
 
-	
 	dishList.appendChild(table);
 	
 	
