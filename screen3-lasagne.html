@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lasagne</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+  </head>
+  <body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h1>HOMELETTE</h1>
+				
+			</div>
+			<div class="col-md-8">
+				<h2> From the best chefs in the world directly to your kitchen </h2>
+			</div>
+		</div>
+		<hr/>
+		<div class="row" id="screen3">
+			<div class="col-md-2">
+				<h4> My dinner </h4>
+				<p>People</p>
+				<input type="number" />
+				<table class="table table-condensed table-hover">
+					<thead>
+				      <tr>
+				         <th>Dish name</th>
+				         <th>Cost</th>
+				      </tr>
+				   </thead>
+				   <tbody>
+				      <tr>
+				         <td>Lasagne</td>
+				         <td>77.20</td>
+				      </tr>
+				      <tr>
+				         <td>Pending</td>
+				         <td>0.00</td>
+				      </tr>
+				   </tbody>
+				</table>
+				<a class="btn btn-primary" href="#" role="button">Confirm dinner</a>
+			</div>
+			<div class="col-md-10">
+				<div id="exampleView">
+					<div class="row">
+						<div class="col-md-6">
+							<h1>Lasagne</h1>
+							<img src="..." alt="..." class="img-rounded" id="img-dish">
+							<p>Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu. Has ea etiam perfecto iudicabit. In vix dico utroque dissentias, eu hinc iriure complectitur his. Pro deseruisse necessitatibus ea, ei labitur dissentiet vis. Legere aeterno cu vis. Mei unum laudem ad. Vide docendi salutatus his ne, ut ornatus constituto vel. In assum indoctum sea, mel lorem bonorum eu. Sea solet regione ea, denique vivendum temporibus his ne.</p>
+							<a class="btn btn-default" href="#" role="button">back to Select Dish</a>
+						</div>
+						<div class="col-md-6">
+							<h4>Ingredients for <span id="guests">4</span> people</h4>
+						    <!-- Will the table be populated by a loop? -->
+							<table class="table" id="tb-ingredients">
+							  <tbody>
+							      <tr>
+							         <td>2 tbsp</td>
+							         <td>olive oil</td>
+							         <td>SEK</td>
+							         <td>0.20</td>
+							      </tr>
+							      <tr>
+							         <td>750 g</td>
+							         <td>beef</td>
+							         <td>SEK</td>
+							         <td>20.00</td>
+							      </tr>
+							      <tr>
+							         <td>2 tbsp</td>
+							         <td>olive oil</td>
+							         <td>SEK</td>
+							         <td>0.20</td>
+							      </tr>
+						  	  </tbody>
+							</table>
+							<a class="btn btn-primary" href="#" role="button">Confirm dish</a>
+						</div>
+					</div>
+					<div class="row">
+						<h1>Preparation</h1>
+						<p>Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu. Has ea etiam perfecto iudicabit. In vix dico utroque dissentias, eu hinc iriure complectitur his. Pro deseruisse necessitatibus ea, ei labitur dissentiet vis. Legere aeterno cu vis. Mei unum laudem ad. Vide docendi salutatus his ne, ut ornatus constituto vel. In assum indoctum sea, mel lorem bonorum eu. Sea solet regione ea, denique vivendum temporibus his ne.</p>
+					</div>
+				</div>
+			</div>	
+		</div>
+	</div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app.js"></script>
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/exampleView.js"></script>
+	<script src="js/view/exampleViewController.js"></script>
+  </body>
+</html>
