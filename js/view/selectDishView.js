@@ -9,27 +9,8 @@ $(function() {
 	var names = new Array;
 	var images = new Array;
 	var descriptions = new Array;
-	//alert(JSON.stringify(allDishes));
 	
-	var dishList = this.dishList[0];
-	
-	var table = document.createElement('table');
-	table.className += 'table';
-	
-	// Create an empty <tr> element and add it to the 1st position of the table:
-	var row = table.insertRow(0);
-
-	// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
-	var cell1 = row.insertCell(0);
-	var cell2 = row.insertCell(1);
-
-	// Add some text to the new cells:
-	cell1.innerHTML = "NEW CELL1";
-	cell2.innerHTML = "NEW CELL2";
-	
-	dishList.appendChild(table);
-	alert (dishList.innerHTML);
-	
+	//get names, images and description
 	$.each(allDishes, function(index, dish) {
 		
 		names.push(dish.name);
@@ -38,6 +19,28 @@ $(function() {
 		
 		dishes.push(dish);
 		});
+	
+	var dishList = this.dishList[0];
+	
+	var table = document.createElement('table');
+	table.className += 'table table-condensed table-hover';
+	
+	// Create an empty <tr> element and add it to the 1st position of the table:
+	var row = table.insertRow(0);
+
+	// Insert new cells (<td> elements) at the 1st and 2nd position of the "new" <tr> element:
+	var cell = new Array;
+	for (i = 0; i < names.length; i++) {
+		
+		cell[i] = row.insertCell(i);
+		cell[i].innerHTML = "<img src='images/" + images[i] + "' height='140' width='80'>" + "<h4>" + 
+			names[i] + "</h4>" + "<br/>" + "<h5>" + descriptions[i] + "</h5>";
+	}
+
+	
+	dishList.appendChild(table);
+	
+	
 	
 	
 	/*
