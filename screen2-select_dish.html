@@ -22,7 +22,7 @@
 			</div>
 		</div>
 		<hr/>
-		<div class="row" id="screen2">
+		<div class="row" id="selectDishView">
 			<div class="col-md-2">
 				<h4> My dinner </h4>
 				<p>People</p>
@@ -44,7 +44,7 @@
 				<a class="btn btn-primary" href="#" role="button">Confirm dinner</a>
 			</div>
 			<div class="col-md-10">
-				<div id="selectDishView">
+				<div id="dontKnow">
 					<div class="row">
 						<div class="col-md-12" id="select_dish">
 							<h4>SELECT DISH</h4>
@@ -74,6 +74,8 @@
 						</div>
 					</div>
 					<br><br>
+					<div class="row" id="dishList"></div>
+					<!--
 					<div class="row" id="thumbnails">
 					    <div class="col-md-2 col-md-offset-1">
 						    <div class="thumbnail">
@@ -120,6 +122,7 @@
 						    </div>
 					    </div>
 					</div>
+					-->
 					</div>
 				</div>
 			</div>
@@ -132,7 +135,6 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/selectDishView.js"></script>
   </body>
