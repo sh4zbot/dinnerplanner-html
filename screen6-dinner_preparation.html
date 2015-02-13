@@ -23,10 +23,10 @@
 			</div>
 		</div>
 		<hr>
-		<div class="row" id="screen6">
+		<div class="row" id="dinnerPreparationView">
 			<div class="row">
 				<div class="col-md-6" align="left">
-					<h3>My Dinner: <span>4</span> people</h3>
+					<h3>My Dinner: <span id="numberOfGuests"></span> people</h3>
 				</div>
 				<div class="col-md-6" align="right">
 					<br>
@@ -39,13 +39,12 @@
 					<img src="..." alt="..." class="img-rounded" id="img-dish">
 				</div>
 				<div class="col-md-4">
-					<h3>LASAGNE</h3>
-					<p>Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu.</p>
+					<h3 id="starterName">LASAGNE</h3>
+					<p id="starterSummary">Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu.</p>
 				</div>
 				<div class="col-md-6">
 					<h5>PREPARATION</h5>
-					<p>Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu. Has ea etiam perfecto iudicabit. In vix dico utroque dissentias, eu hinc iriure complectitur his. Pro deseruisse necessitatibus ea, ei labitur dissentiet vis. Legere aeterno cu vis. Mei unum laudem ad. Vide docendi salutatus his ne, ut ornatus constituto vel. In assum indoctum sea, mel lorem bonorum eu. Sea solet regione ea, denique vivendum temporibus his ne.</p>
-					<p>Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu.</p>
+					<p id="starterPreparation">Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu. Has ea etiam perfecto iudicabit. In vix dico utroque dissentias, eu hinc iriure complectitur his. Pro deseruisse necessitatibus ea, ei labitur dissentiet vis. Legere aeterno cu vis. Mei unum laudem ad. Vide docendi salutatus his ne, ut ornatus constituto vel. In assum indoctum sea, mel lorem bonorum eu. Sea solet regione ea, denique vivendum temporibus his ne.</p>
 				</div>
 			</div>
 			<br>
@@ -55,13 +54,27 @@
 					<img src="..." alt="..." class="img-rounded" id="img-dish">
 				</div>
 				<div class="col-md-4">
-					<h3>FIORENTINA</h3>
-					<p>Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu.</p>
+					<h3 id="mainCourseName">FIORENTINA</h3>
+					<p id="mainCourseSummary">Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu.</p>
 				</div>
 				<div class="col-md-6">
 					<h5>PREPARATION</h5>
-					<p>Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu. Has ea etiam perfecto iudicabit. In vix dico utroque dissentias, eu hinc iriure complectitur his. Pro deseruisse necessitatibus ea, ei labitur dissentiet vis. Legere aeterno cu vis. Mei unum laudem ad. Vide docendi salutatus his ne, ut ornatus constituto vel. In assum indoctum sea, mel lorem bonorum eu. Sea solet regione ea, denique vivendum temporibus his ne.</p>
-					<p>Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu.</p>
+					<p id="mainCoursePreparation">Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu. Has ea etiam perfecto iudicabit. In vix dico utroque dissentias, eu hinc iriure complectitur his. Pro deseruisse necessitatibus ea, ei labitur dissentiet vis. Legere aeterno cu vis. Mei unum laudem ad. Vide docendi salutatus his ne, ut ornatus constituto vel. In assum indoctum sea, mel lorem bonorum eu. Sea solet regione ea, denique vivendum temporibus his ne.</p>
+				</div>
+			</div>
+			<br>
+			<br>			
+			<div class="row">
+				<div class="col-md-2">
+					<img src="..." alt="..." class="img-rounded" id="img-dish">
+				</div>
+				<div class="col-md-4">
+					<h3 id="dessertName">ICECREAM</h3>
+					<p id="dessertSummary">Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu.</p>
+				</div>
+				<div class="col-md-6">
+					<h5>PREPARATION</h5>
+					<p id="dessertPreparation">Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu. Has ea etiam perfecto iudicabit. In vix dico utroque dissentias, eu hinc iriure complectitur his. Pro deseruisse necessitatibus ea, ei labitur dissentiet vis. Legere aeterno cu vis. Mei unum laudem ad. Vide docendi salutatus his ne, ut ornatus constituto vel. In assum indoctum sea, mel lorem bonorum eu. Sea solet regione ea, denique vivendum temporibus his ne.</p>
 				</div>
 			</div>
 			<hr>
@@ -76,9 +89,9 @@
     <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
 
 	<!-- The application JavaScript code -->
-	<script src="js/app.js"></script>
-	<script src="js/model/dinnerModel.js"></script>
-	<script src="js/view/exampleView.js"></script>
-	<script src="js/view/exampleViewController.js"></script>
+	<script src="js/app_dinnerPreparation.js"></script>
+	<script src="js/model/dinnerPreparationModel.js"></script>
+	<script src="js/view/dinnerPreparationView.js"></script>
+	<!-- <script src="js/view/exampleViewController.js"></script> -->
   </body>
 </html>
