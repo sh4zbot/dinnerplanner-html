@@ -24,7 +24,6 @@ var dishID = 100; // Using dish 100 (meat balls as example). Change here to get 
  
  this.selectedDishes = model.getSelectedDishes(); // Gets selectedDishes through a getter!
 
-
 // Fill static elements with HTML code
  this.numberOfGuests.html(model.getNumberOfGuests());
  
@@ -70,8 +69,7 @@ var dishID = 100; // Using dish 100 (meat balls as example). Change here to get 
 	//console.log(this.ingredientsList[key]);
  }*/
 
-	//price
-	this.totalPrice.html(model.getTotalMenuPrice() + ".00 SEK");
+
  console.info("Alou_testando_view");
 }
 
