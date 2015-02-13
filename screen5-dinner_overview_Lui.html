@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Dinner overview</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+  </head>
+  <body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h1>HOMELETTE</h1>
+				
+			</div>
+			<div class="col-md-8">
+				<h2> From the best chefs in the world directly to your kitchen </h2>
+			</div>
+		</div>
+		<hr>
+		<div class="row" id="dinnerOverviewView">
+			<div class="row">
+				<div class="col-md-6" align="left">
+					<h3>My Dinner: <span>4</span> people</h3>
+				</div>
+				<div class="col-md-6" align="right">
+					<br>
+					<a class="btn btn-default" href="#" role="button">Go back and edit dinner</a>	
+				</div>
+			</div>
+			<hr>
+			<div class="row">
+				<div class="row">
+				    <div class="col-md-2 col-md-offset-1"></div> <!-- EMPTY COLUMN -->
+				    <div class="col-md-2">
+				    	<div class="thumbnail_ov">
+						    <div class="thumbnail">
+						      <img src="..." alt="..." id="starterImage">
+						      <div class="caption">
+						        <h4 id="starterName">Thumbnail label</h4>
+						        <p id="starterPrice">...</p>
+						      </div>
+						    </div>
+					    </div>
+					</div>
+					<div class="col-md-2">
+				    	<div class="thumbnail_ov">
+						    <div class="thumbnail">
+						      <img src="..." alt="..." id="mainCourseImage">
+						      <div class="caption">
+						        <h4 id="mainCourseName">Thumbnail label</h4>
+						        <p id="mainCoursePrice">...</p>
+						      </div>
+						    </div>
+					    </div>
+					</div>
+					<div class="col-md-2">
+				    	<div class="thumbnail_ov">
+						    <div class="thumbnail">
+						      <img src="..." alt="..." id="dessertImage">
+						      <div class="caption">
+						        <h4 id="dessertName">Thumbnail label</h4>
+						        <p id="dessertPrice">...</p>
+						      </div>
+						    </div>
+					    </div>
+					</div>
+					<div class="col-md-2">
+						<h4>Total:</h4>
+						<p>341.20 SEK</p>
+					</div>
+			</div>
+			<hr>
+			<div align="center">
+				<a class="btn btn-primary" href="#" role="button">Print	Full Recipe</a>	
+			</div>
+		</div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/app_dinnerOverview.js"></script>
+	<script src="js/model/dinnerOverviewModel.js"></script>
+	<script src="js/view/dinnerOverviewView.js"></script>
+  </body>
+</html>
