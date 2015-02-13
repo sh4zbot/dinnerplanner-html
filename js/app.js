@@ -6,7 +6,7 @@ $(function() {
 	//var exampleView = new ExampleView($("#exampleView"));
 	var exampleView = new ExampleView($("#exampleView"), model);
 
-	var dishdetailView = new DishDetailView($( "#dishView" ).load( "screen3-lasagne.html #dishdetailView" );, model);
+	//var dishdetailView = new DishDetailView($( "#dishView" ).load( "screen3-lasagne.html #dishdetailView" );, model);
 	
 	
 });

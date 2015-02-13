@@ -42,28 +42,13 @@ var DinnerModel = function() {
 	this.getAllIngredients = function() {
 		var ingredients = new Array();
 		
-		// debug
-		//var ingredient = this.getDish(1)['ingredients'];
-		//alert(JSON.stringify(ingredient));
-		//var count = 0;
-		
 		$.each(selectedDishes, function(index, id) {
-			//debug
-			//count++;
-			//alert("loop nr " + count);
 			for(key in dishes){
 				if(dishes[key].id == id) {
 				dishIngredients = dishes[key]['ingredients'];
-				// debug
-				//alert(JSON.stringify(dishes[key]['ingredients']));
 				}
 			}
 			ingredients.push(dishIngredients);
-		
-			/*
-			var thething = this.getDish(id)['ingredients'];
-			ingredients.push( thething );
-			*/
 		});
 		
 		
@@ -83,7 +68,7 @@ var DinnerModel = function() {
 			});
 			
 		});
-		return totalPrice;
+		return totalPrice*numberOfGuests;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu

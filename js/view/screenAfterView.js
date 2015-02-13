@@ -2,13 +2,70 @@ $(function() {
 
 	var SelectDishView = function (container,model) {
 
-	this.dishList = container.find("#dishList");
-	var dishList = this.dishList[0];
+	
 	
 	//get the Persons input field and set the value from dinnerModel.js
 	this.numberOfGuests = container.find("#numberOfGuests");
 	var numberOfGuests = this.numberOfGuests[0];
 	numberOfGuests.value = model.getNumberOfGuests();
+	
+	//---selected dishes section----
+	this.selectedDishes = container.find("#selectedDishes");
+	var selectedDishes = this.selectedDishes[0];
+	
+	var modelDishes = model.getFullMenu();
+	var selectedNames = new Array;
+	var selectedPrice = new Array;
+	
+	$.each(modelDishes, function(index,value) {
+		var price = 0;
+		selectedNames.push(model.getDish(value)['name']);
+		
+		//alert(JSON.stringify(model.getDish(value)['ingredients']));
+		
+		$.each(model.getDish(value)['ingredients'], function(ind,ingredient) {
+			price += ingredient['price'];
+		});
+		
+		selectedPrice.push(price);
+		
+	});
+	
+	//create table
+	
+	var selectedTable = document.createElement('table');
+	selectedTable.className += 'table table-condensed table-hover';
+	
+	//var selectedRow = selectedTable.insertRow(0);
+	var selectedRow = new Array;
+	var selectedCell = new Array;
+	
+	for (i = 0; i < selectedNames.length; i++) {
+		selectedRow[i] = selectedTable.insertRow(i);
+		
+		var cell0 = selectedRow[i].insertCell(0);
+		var cell1 = selectedRow[i].insertCell(1);
+		
+		cell0.innerHTML = selectedNames[i];
+		cell1.innerHTML = selectedPrice[i];
+		
+		
+	
+	}
+
+	
+	
+	//alert(JSON.stringify(table));
+	
+	selectedDishes.appendChild(selectedTable);
+	
+	
+	
+	
+	
+	//----the thumbnails section----
+	this.dishList = container.find("#dishList");
+	var dishList = this.dishList[0];
 	
 	var allDishes = model.getAllDishes('main dish');
 	var names = new Array;
