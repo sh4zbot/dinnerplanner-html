@@ -11,6 +11,7 @@ var dishID = 100; // Using ingredient 100 (meat balls as example). Change here t
  this.dishDescription = container.find("#dishDescription");
  this.numberOfGuests = container.find("#numberOfGuests");
  this.ingredientsTable = container.find("#ingredientsTable");
+ this.imgDish = container.find("imgDish");
  
  // Fields of variable size
  this.ingredientsList = new Array;
@@ -21,6 +22,9 @@ var dishID = 100; // Using ingredient 100 (meat balls as example). Change here t
  this.numberOfGuests.html(model.getNumberOfGuests());
  this.dishName.html(model.getDish(dishID).name);
  this.dishDescription.html(model.getDish(dishID).description);
+ this.imgDish.attr("src", "images/" + model.getDish(dishID).image); // Changes container (selector) src attribute to corresponding in model.dishes through items in the menu
+
+
  
  // Defines variable-length elements content using model function
  this.ingredientsList = model.getDish(dishID).ingredients;

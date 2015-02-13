@@ -4,9 +4,10 @@ var DinnerPreparationModel = function() {
 	// TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	
-	var numberOfGuests = 3;
+	var numberOfGuests = 4;
 	
 	var selectedDishes = { 'starter' : 1, 'main course':100, 'dessert':200 } ;
+	//var selectedDishes_dummy = { 'starter' : 1, 'main course':100, 'dessert':200 } ;
 	
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
@@ -30,6 +31,20 @@ var DinnerPreparationModel = function() {
 		return jQueryObject[0];
 	*/
 	return selectedDishes[type];
+		
+	}
+
+	// Returns all selected dishes already in the menu (used in screen 6)
+	this.getSelectedDishes = function() {
+	
+	/*
+	var jQueryObject = $(dishes).filter(function(index,dish) {
+			return dish.type === type;
+			});
+		
+		return jQueryObject[0];
+	*/
+	return selectedDishes;
 		
 	}
 

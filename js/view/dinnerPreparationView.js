@@ -1,7 +1,7 @@
 //DinnerPreparationView Object constructor
 var DinnerPreparationView = function (container,model) {
 
-var dishID = 100; // Using ingredient 100 (meat balls as example). Change here to get another one.
+var dishID = 100; // Using dish 100 (meat balls as example). Change here to get another one.
  
  // Get all the relevant elements of the view (ones that show data
  // and/or ones that responded to interaction)
@@ -21,9 +21,31 @@ var dishID = 100; // Using ingredient 100 (meat balls as example). Change here t
  this.dessertImage = container.find("#dessertImage");
  
  this.numberOfGuests = container.find("#numberOfGuests");
+ 
+ this.selectedDishes = model.getSelectedDishes(); // Gets selectedDishes through a getter!
 
 // Fill static elements with HTML code
  this.numberOfGuests.html(model.getNumberOfGuests());
+ 
+ this.starterName.html(model.getDish(this.selectedDishes['starter']).name);
+ this.starterPreparation.html(model.getDish(this.selectedDishes['starter']).description);
+ this.starterImage.attr("src", "images/" + model.getDish(this.selectedDishes['starter']).image); // Changes container (selector) src attribute to corresponding in model.dishes through items in the menu
+
+ this.mainCourseName.html(model.getDish(this.selectedDishes['main course']).name);
+ this.mainCoursePreparation.html(model.getDish(this.selectedDishes['main course']).description);
+ this.mainCourseImage.attr("src", "images/" + model.getDish(this.selectedDishes['main course']).image);
+
+ this.dessertName.html(model.getDish(this.selectedDishes['dessert']).name);
+ this.dessertPreparation.html(model.getDish(this.selectedDishes['dessert']).description);
+ this.dessertImage.attr("src", "images/" + model.getDish(this.selectedDishes['dessert']).image);
+
+/* DEBUG console.log("imagem: " + this.starterImage.src);
+ console.log("id do starter: " + this.selectedDishes['starter']);
+ //model.addDishToMenu(100);
+ for (key in this.selectedDishes){
+ 	console.log("print do menu: " + this.selectedDishes[key]);
+ }*/
+ 
 
 // >>>> STUCK HERE: HOW TO GET THE ID FROM THE SELECTED DISHES ARRAY AND USE HERE?
 // this.starterName.html(model.getDish(selectedDishes['starter']);
