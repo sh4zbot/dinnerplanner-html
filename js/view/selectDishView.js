@@ -2,7 +2,7 @@ $(function() {
 
 	var SelectDishView = function (container,model) {
 
-	this.dishList = container.find("#dishList");
+	this.dishList = container.find("#images");
 	var dishList = this.dishList[0];
 	
 	//get the Persons input field and set the value from dinnerModel.js

@@ -1,87 +1,47 @@
 $(function() {
 
-	var SelectDishView = function (container,model) {
+	var overView = function (container,model) {
 
 	
+	
+	this.dishList = container.find("#images");
+	var dishList = this.dishList[0];
 	
 	//get the Persons input field and set the value from dinnerModel.js
 	this.numberOfGuests = container.find("#numberOfGuests");
 	var numberOfGuests = this.numberOfGuests[0];
 	numberOfGuests.value = model.getNumberOfGuests();
 	
-	//---selected dishes section----
-	this.selectedDishes = container.find("#selectedDishes");
-	var selectedDishes = this.selectedDishes[0];
+	//var selectedDishes = model.getAllDishes('main dish');
+	var fullMenu = model.getFullMenu();
 	
-	var modelDishes = model.getFullMenu();
-	var selectedNames = new Array;
-	var selectedPrice = new Array;
-	
-	$.each(modelDishes, function(index,value) {
-		var price = 0;
-		selectedNames.push(model.getDish(value)['name']);
-		
-		//alert(JSON.stringify(model.getDish(value)['ingredients']));
-		
-		$.each(model.getDish(value)['ingredients'], function(ind,ingredient) {
-			price += ingredient['price'];
-		});
-		
-		selectedPrice.push(price);
-		
-	});
-	
-	//create table
-	
-	var selectedTable = document.createElement('table');
-	selectedTable.className += 'table table-condensed table-hover';
-	
-	//var selectedRow = selectedTable.insertRow(0);
-	var selectedRow = new Array;
-	var selectedCell = new Array;
-	
-	for (i = 0; i < selectedNames.length; i++) {
-		selectedRow[i] = selectedTable.insertRow(i);
-		
-		var cell0 = selectedRow[i].insertCell(0);
-		var cell1 = selectedRow[i].insertCell(1);
-		
-		cell0.innerHTML = selectedNames[i];
-		cell1.innerHTML = selectedPrice[i];
-		
-		
-	
-	}
+	var selectedDishes = new Array;
 
 	
 	
-	//alert(JSON.stringify(table));
-	
-	selectedDishes.appendChild(selectedTable);
-	
-	
-	
-	
-	
-	//----the thumbnails section----
-	this.dishList = container.find("#dishList");
-	var dishList = this.dishList[0];
-	
-	var allDishes = model.getAllDishes('main dish');
 	var names = new Array;
 	var images = new Array;
 	var descriptions = new Array;
 	
+	$.each(fullMenu,function(index,value) {
+		names.push(model.getDish(value)['name']);
+		images.push(model.getDish(value)['image']);
+		descriptions.push(model.getDish(value)['description']);
+	});
+	
 	//get names, images and description
-	$.each(allDishes, function(index, dish) {		
+	/*
+	$.each(selectedDishes, function(index, dish) {		
 		names.push(dish.name);
 		images.push(dish.image);
 		descriptions.push(dish.description);		
 	});
+	*/
 	
 	//create table
 	var table = document.createElement('table');
 	table.className += 'table';
+	
 	var row = table.insertRow(0);
 	var cell = new Array;
 	for (i = 0; i < names.length; i++) {
@@ -89,44 +49,22 @@ $(function() {
 		cell[i].innerHTML = "<img src='images/" + images[i] + "' height='140' width='80'>" + "<h4>" + 
 			names[i] + "</h4>" + "<br/>" + "<h5>" + descriptions[i] + "</h5>";
 	}
-
+	
 	dishList.appendChild(table);
 	
 	
+	//total price
+	this.price = container.find("#totalPrice");
+	var price = this.price[0];
 	
-	
-	/*
-	this.dishList.html("");
-	$(this.thumbnails).find( "img" ).html("");
-	//this.dishList.append(JSON.stringify(dishes));
-	//this.dishList.append(JSON.stringify(dishes.images));
-	
-	this.dishList.append("<table class='table' id='tb-ingredients'>");
-	this.dishList.append("<tbody><tr>");
-	for (i = 0; i < names.length; i++) {
-	
-		this.dishList.append("<td>");
-		this.dishList.append(names[i]);
-		this.dishList.append(images[i]);
-		this.dishList.append(descriptions[i]);
-		this.dishList.append("</td>");
-	}	
-	this.dishList.append("</tr>");
-	
-	this.dishList.append("</tbody></table>");
-	
-	
-	this.dishList.append("<table class='table' id='tb-ingredients'><tbody><tr><td>2 tbsp</td><td>olive oil</td><td>SEK</td><td>0.20</td></tr><tr><td>750 g</td><td>beef</td><td>SEK</td><td>20.00</td></tr><tr><td>2 tbsp</td><td>olive oil</td><td>SEK</td><td>0.20</td></tr></tbody></table>");
-	*/
-	
-	
+	price.innerHTML = model.getTotalMenuPrice();
 	
 	
 	}
 	
 	
 	var model = new DinnerModel();
-	var selectDishView = new SelectDishView($("#selectDishView"), model);
+	var overView = new overView($("#overView"), model);
 	
 	
 
