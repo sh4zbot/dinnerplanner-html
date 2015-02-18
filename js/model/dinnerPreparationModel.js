@@ -1,12 +1,13 @@
-//DinnerModel Object constructor
-var DinnerModel = function() {
+//DinnerPreparationModel Object constructor
+var DinnerPreparationModel = function() {
  
-	//TODO Lab 2 implement the data structure that will hold number of guest
+	// TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	
 	var numberOfGuests = 4;
 	
 	var selectedDishes = { 'starter' : 1, 'main course':100, 'dessert':200 } ;
+	//var selectedDishes_dummy = { 'starter' : 1, 'main course':100, 'dessert':200 } ;
 	
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
@@ -33,6 +34,20 @@ var DinnerModel = function() {
 		
 	}
 
+	// Returns all selected dishes already in the menu (used in screen 6)
+	this.getSelectedDishes = function() {
+	
+	/*
+	var jQueryObject = $(dishes).filter(function(index,dish) {
+			return dish.type === type;
+			});
+		
+		return jQueryObject[0];
+	*/
+	return selectedDishes;
+		
+	}
+
 	//Returns all the dishes on the menu.
 	this.getFullMenu = function() {
 		return selectedDishes;
@@ -42,46 +57,40 @@ var DinnerModel = function() {
 	this.getAllIngredients = function() {
 		var ingredients = new Array();
 		
+		// debug
+		//var ingredient = this.getDish(1)['ingredients'];
+		//alert(JSON.stringify(ingredient));
+		//var count = 0;
+		
 		$.each(selectedDishes, function(index, id) {
+			//debug
+			//count++;
+			//alert("loop nr " + count);
 			for(key in dishes){
 				if(dishes[key].id == id) {
 				dishIngredients = dishes[key]['ingredients'];
+				// debug
+				//alert(JSON.stringify(dishes[key]['ingredients']));
 				}
 			}
 			ingredients.push(dishIngredients);
+		
+			/*
+			var thething = this.getDish(id)['ingredients'];
+			ingredients.push( thething );
+			*/
 		});
 		
 		
 		return ingredients;
 	}
-	
-	this.getTotalDishPrice = function(id) {
-		var totalPrice = 0;
-		var dishIngredients = new Array;
-		dishIngredients = this.getDish(id)['ingredients'];
 
-		// Separate the components of the ingredients list and sum up prices
-	 	for(key1 in dishIngredients){
-			for(key2 in dishIngredients[key1]) {
-				console.log("inside list: " + dishIngredients[key1][key2]);
-				if (key2 == 'price') {
-					console.log("price is: " + dishIngredients[key1][key2]);
-					totalPrice += dishIngredients[key1][key2];
-				}	
-			}
-		}
-			
-		return totalPrice;
-	}
-	
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
 	
 	this.getTotalMenuPrice = function() {
 		var totalPrice = 0;
 		var ingredients = this.getAllIngredients();
 		
-		i
-
 		$.each(ingredients, function(index, ingredientList) {
 			
 			$.each(ingredientList, function(ind, ingredient) {
@@ -89,7 +98,7 @@ var DinnerModel = function() {
 			});
 			
 		});
-		return totalPrice*numberOfGuests;
+		return totalPrice;
 	}
 
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
@@ -154,6 +163,8 @@ var DinnerModel = function() {
 			}
 		}
 	}
+
+	 console.info("Alou_testando_model");
 
 	// the dishes variable contains an array of all the 
 	// dishes in the database. each dish has id, name, type,

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Select dish</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+
+  </head>
+  <body>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<h1>HOMELETTE</h1>
+				
+			</div>
+			<div class="col-md-8">
+				<h2> From the best chefs in the world directly to your kitchen </h2>		
+			</div>
+		</div>
+		<hr/>
+		<div class="row" id="selectDishView">
+			<div class="col-md-2">
+				<h4> My dinner </h4>
+				<p>People</p>
+				<input type="number" id="numberOfGuests"/>
+				<div id="selectedDishes">
+					<!--
+					<table class="table table-condensed table-hover">
+						<thead>
+						  <tr>
+							 <th>Dish name</th>
+							 <th>Cost</th>
+						  </tr>
+					   </thead>
+					   <tbody>
+						  <tr>
+							 <td>Pending</td>
+							 <td>0.00</td>
+						  </tr>
+					   </tbody>
+					</table>
+					-->
+				</div>
+				<a class="btn btn-primary" href="#" role="button">Confirm dinner</a>
+			</div>
+			<div class="col-md-10">
+				<div id="dontKnow">
+					<div class="row">
+						<div class="col-md-12" id="select_dish">
+							<h4>SELECT DISH</h4>
+							<div class="row">
+							    <div class="col-lg-4">
+							    <div class="input-group">
+							      <input type="text" class="form-control" placeholder="Search for...">
+							      <span class="input-group-btn">
+							        <button class="btn btn-default" type="button">Search</button>
+							      </span>
+							    </div><!-- /input-group -->
+							  </div><!-- /.col-lg-6 -->
+							  <div class="col-lg-4">
+						    <div class="input-group">
+						      <input type="text" class="form-control" aria-label="...">
+						      <div class="input-group-btn">
+						        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">  <span class="caret"></span></button>
+						        <ul class="dropdown-menu dropdown-menu-right" role="menu">
+						          <li><a href="#">Starter</a></li>
+						          <li><a href="#">Main Course</a></li>
+						          <li><a href="#">Dessert</a></li>
+						        </ul>
+						      </div><!-- /btn-group -->
+						    </div><!-- /input-group -->
+						  </div><!-- /.col-lg-6 -->
+							</div><!-- /.row -->
+						</div>
+					</div>
+					<br><br>
+					
+					<!-- adding table with dishes here.. -->
+					<div class="row" id="dishList">
+					
+					</div>
+					
+					<!--
+					<div class="row" id="thumbnails">
+					    <div class="col-md-2 col-md-offset-1">
+						    <div class="thumbnail">
+						      <img src="..." alt="...">
+						      <div class="caption">
+						        <h4>Thumbnail label</h4>
+						        <p>...</p>
+						      </div>
+						    </div>
+					    </div>
+					    <div class="col-md-2">
+						    <div class="thumbnail">
+						      <img src="..." alt="...">
+						      <div class="caption">
+						        <h4>Thumbnail label</h4>
+						        <p>...</p>
+						      </div>
+						    </div>
+					    </div>
+					    <div class="col-md-2">					    		<div class="thumbnail">
+						      <img src="..." alt="...">
+						      <div class="caption">
+						        <h4>Thumbnail label</h4>
+						        <p>...</p>
+						      </div>
+						    </div>
+					    </div>
+					    <div class="col-md-2">
+					    	<div class="thumbnail">
+						      <img src="..." alt="...">
+						      <div class="caption">
+						        <h4>Thumbnail label</h4>
+						        <p>...</p>
+						      </div>
+						    </div>
+					    </div>
+					    <div class="col-md-2">
+					    	<div class="thumbnail">
+						      <img src="..." alt="...">
+						      <div class="caption">
+						        <h4>Thumbnail label</h4>
+						        <p>...</p>
+						      </div>
+						    </div>
+					    </div>
+					</div>
+					-->
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript, needed if you want for instance tabs, models, popovers etc. -->
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+
+	<!-- The application JavaScript code -->
+	<script src="js/model/dinnerModel.js"></script>
+	<script src="js/view/screenAfterView.js"></script>
+  </body>
+</html>
