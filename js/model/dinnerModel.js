@@ -13,24 +13,13 @@ var DinnerModel = function() {
 		alert(num);
 	}
 
-	// should return 
 	this.getNumberOfGuests = function() {
 		return numberOfGuests;
 	}
 
 	//Returns the dish that is on the menu for selected type 
-	
 	this.getSelectedDish = function(type) {
-	
-	/*
-	var jQueryObject = $(dishes).filter(function(index,dish) {
-			return dish.type === type;
-			});
-		
-		return jQueryObject[0];
-	*/
-	return selectedDishes[type];
-		
+		return selectedDishes[type];			
 	}
 
 	//Returns all the dishes on the menu.
@@ -43,12 +32,16 @@ var DinnerModel = function() {
 		var ingredients = new Array();
 		
 		$.each(selectedDishes, function(index, id) {
-			for(key in dishes){
-				if(dishes[key].id == id) {
-				dishIngredients = dishes[key]['ingredients'];
+		//check that the dish is set
+		if (id != 0) {
+			
+				for(key in dishes){
+					if(dishes[key].id == id) {
+					dishIngredients = dishes[key]['ingredients'];
+					}
 				}
-			}
-			ingredients.push(dishIngredients);
+				ingredients.push(dishIngredients);
+		}
 		});
 		
 		
@@ -75,7 +68,6 @@ var DinnerModel = function() {
 	}
 	
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
-	
 	this.getTotalMenuPrice = function() {
 		var totalPrice = 0;
 		var ingredients = this.getAllIngredients();
@@ -96,32 +88,11 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		selectedDishes[ this.getDish(id)['type'] ] = id;
-		
-		//old version
-		/*
-		var dishToAdd = $(dishes).filter(function(index,dish) {
-			return dish.id == id;
-		});
-		
-		selectedDishes[dishToAdd[0]['type']] = dishToAdd[0];
-		*/
-		
-		// debug
-		//alert(JSON.stringify( selectedDishes[ dishToAdd[0]['type'] ]) );
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		selectedDishes[getDish(id)['type'] ] = 0;
-		
-		//old version
-		/*
-		var dishToRemove = $(dishes).filter(function(index,dish) {
-			return dish.id == id;
-		});
-		
-		selectedDishes[ dishToRemove[0]['type'] ] = {};
-		*/
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
