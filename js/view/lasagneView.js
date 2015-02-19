@@ -23,7 +23,7 @@ var dishID = 100; // Using ingredient 100 (meat balls as example). Change here t
  this.dishName.html(model.getDish(dishID).name);
  this.dishDescription.html(model.getDish(dishID).description);
  this.imgDish.attr("src", "images/" + model.getDish(dishID).image); // Changes container (selector) src attribute to corresponding in model.dishes through items in the menu
-
+ 
 
  
  // Defines variable-length elements content using model function

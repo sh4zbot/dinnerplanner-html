@@ -10,7 +10,7 @@ $(function() {
 		swap('screen1','screen2');
 	});
 	document.getElementById('confirmDinnerBtn').addEventListener('click',function(e){
-		swap('screen2','screen1');
+		swap('screen2','screen3');
 	});
 	
 

@@ -1,4 +1,6 @@
-$(function() {
+// This outside commented stuff was used before everything was in
+// one single html file, keep it here for now if we want to change it back..
+//$(function() {
 
 	var SelectDishView = function (container,model) {
 	
@@ -142,10 +144,11 @@ $(function() {
 	
 	}
 	
-	
+/*
 	var model = new DinnerModel();
 	var selectDishView = new SelectDishView($("#screen2"), model);
 	
 	
 
 });
+*/
