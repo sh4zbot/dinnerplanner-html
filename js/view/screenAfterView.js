@@ -9,7 +9,7 @@ $(function() {
 	var numberOfGuests = this.numberOfGuests[0];
 	numberOfGuests.value = model.getNumberOfGuests();
 	
-	//---selected dishes section----
+	// "Selected dishes" section (My dinner, table on left side of screen)
 	this.selectedDishes = container.find("#selectedDishes");
 	var selectedDishes = this.selectedDishes[0];
 	
@@ -31,13 +31,9 @@ $(function() {
 		
 	});
 
-	
-	//create table
-	
 	var selectedTable = document.createElement('table');
 	selectedTable.className += 'table table-condensed table-hover';
 	
-	//var selectedRow = selectedTable.insertRow(0);
 	var selectedRow = new Array;
 	var selectedCell = new Array;
 	
@@ -54,17 +50,10 @@ $(function() {
 	
 	}
 
-	
-	
-	//alert(JSON.stringify(table));
-	
 	selectedDishes.appendChild(selectedTable);
 	
 	
-	
-	
-	
-	//----the thumbnails section----
+	//Dishes with thumbnails, names and descriptions
 	this.dishList = container.find("#dishList");
 	var dishList = this.dishList[0];
 	
@@ -80,93 +69,57 @@ $(function() {
 		descriptions.push(dish.description);		
 	});
 	
-	//create table
-	var table = document.createElement('table');
-	table.className += 'table';
-	var row = table.insertRow(0);
-	var cell = new Array;
-	for (i = 0; i < names.length; i++) {
-		cell[i] = row.insertCell(i);
-		cell[i].innerHTML = "<img src='images/" + images[i] + "' height='140' width='80'>" + "<h4>" + 
-			names[i] + "</h4>" + "<br/>" + "<h5>" + descriptions[i] + "</h5>";
+	// function to create a unorderdered list with images and bootstrap columns
+	
+	function makeUL(names, images, descriptions) {
+		// Create the list element:
+		var list = document.createElement('ul');
+
+		for(var i = 0; i < names.length; i++) {
+			// Create the list item:
+			var item = document.createElement('li');
+			//set bootstrap column class..
+			item.className += 'col-md-2';
+			
+			// add thumbnail class div
+			var thumbnail =	document.createElement('div');
+			thumbnail.className += 'thumbnail';
+				
+				//add image to the thumbnail div
+				var img = new Image();
+				img.src = ('images/' + images[i] );
+				thumbnail.appendChild(img);
+				
+				//add caption class div
+				var caption = document.createElement('div');
+				caption.className += 'caption';
+					
+					//add name
+					var h4 = document.createElement("h4");
+					var text = document.createTextNode(names[i]);
+					h4.appendChild(text);
+					caption.appendChild(h4);
+					
+					//add description
+					var p = document.createElement("p");
+					p.appendChild(document.createTextNode(descriptions[i]));
+					caption.appendChild(p);
+					
+				//add caption to thumbnail
+				thumbnail.appendChild(caption);
+					
+			//add thumbnail to the item
+			item.appendChild(thumbnail);
+					
+			// Add it to the list:
+			list.appendChild(item);
+		}
+
+		// Finally, return the constructed list:
+		return list;
 	}
-
-	dishList.appendChild(table);
-
-	//trying to make "table" with bootstrap row/columns
-	/*
-	var bootstrapRow = document.createElement('div');
-	bootstrapRow.className += 'row';
-	var bootstrapCells = new Array;
-
-	for (i = 0; i < names.length; i++) {
-		bootstrapCells[i]	
-	}
-		
-	var bootstrapRow = document.createElement('div');
-	bootstrapRow.className += 'row';
 	
-	var bootstrapColumn1 = document.createElement('div');
-	bootstrapColumn1.className += 'col-md-6';
-	bootstrapColumn1.innerHTML = 'test left';
-
-	var bootstrapThumbnail1 = document.createElement('div');
-	bootstrapThumbnail1.className += 'thumbnail';
-	bootstrapColumn1.appendChild(bootstrapThumbnail1);
-
-
-
-	var bootstrapColumn2 = document.createElement('div');
-	bootstrapColumn2.className += 'col-md-6';
-	bootstrapColumn2.innerHTML = 'test right';
-
-	bootstrapRow.appendChild(bootstrapColumn1);
-	bootstrapRow.appendChild(bootstrapColumn2);
-
-	dishList.appendChild(bootstrapRow);
-
-	alert(bootstrapRow.innerHTML);
-	*/
-
-	/*
-	<div class="col-md-2 col-md-offset-1">
-		    <div class="thumbnail">
-		      <img src="..." alt="...">
-		      <div class="caption">
-		        <h4>Thumbnail label</h4>
-		        <p>...</p>
-		      </div>
-		    </div>
-	</div>
-	*/
-	
-	
-	
-	/*
-	this.dishList.html("");
-	$(this.thumbnails).find( "img" ).html("");
-	//this.dishList.append(JSON.stringify(dishes));
-	//this.dishList.append(JSON.stringify(dishes.images));
-	
-	this.dishList.append("<table class='table' id='tb-ingredients'>");
-	this.dishList.append("<tbody><tr>");
-	for (i = 0; i < names.length; i++) {
-	
-		this.dishList.append("<td>");
-		this.dishList.append(names[i]);
-		this.dishList.append(images[i]);
-		this.dishList.append(descriptions[i]);
-		this.dishList.append("</td>");
-	}	
-	this.dishList.append("</tr>");
-	
-	this.dishList.append("</tbody></table>");
-	
-	
-	this.dishList.append("<table class='table' id='tb-ingredients'><tbody><tr><td>2 tbsp</td><td>olive oil</td><td>SEK</td><td>0.20</td></tr><tr><td>750 g</td><td>beef</td><td>SEK</td><td>20.00</td></tr><tr><td>2 tbsp</td><td>olive oil</td><td>SEK</td><td>0.20</td></tr></tbody></table>");
-	*/
-	
-	
+	dishList.appendChild(makeUL(names, images, descriptions));
 	
 	
 	}
