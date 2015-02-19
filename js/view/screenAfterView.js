@@ -94,7 +94,7 @@ $(function() {
 	dishList.appendChild(table);
 
 	//trying to make "table" with bootstrap row/columns
-	/*
+	
 	var bootstrapRow = document.createElement('div');
 	bootstrapRow.className += 'row';
 	var bootstrapCells = new Array;
@@ -109,7 +109,6 @@ $(function() {
 	var bootstrapColumn1 = document.createElement('div');
 	bootstrapColumn1.className += 'col-md-6';
 	bootstrapColumn1.innerHTML = 'test left';
-
 	var bootstrapThumbnail1 = document.createElement('div');
 	bootstrapThumbnail1.className += 'thumbnail';
 	bootstrapColumn1.appendChild(bootstrapThumbnail1);
@@ -126,7 +125,7 @@ $(function() {
 	dishList.appendChild(bootstrapRow);
 
 	alert(bootstrapRow.innerHTML);
-	*/
+	
 
 	/*
 	<div class="col-md-2 col-md-offset-1">
