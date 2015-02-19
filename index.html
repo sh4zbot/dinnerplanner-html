@@ -93,7 +93,7 @@
 				<p>People</p>
 				<input type="number" id="numberOfGuests"/>
 				<div id="selectedDishes"> </div>
-				<a class="btn btn-primary" href="#" role="button">Confirm dinner</a>
+				<a class="btn btn-primary" href="#" role="button" id="confirmDinnerBtn2">Confirm dinner</a>
 			</div>
 			<div class="col-md-10">
 				<div id="dishdetailView">
@@ -108,7 +108,7 @@
 							<h4>Ingredients for <span id="numberOfGuests"></span> people</h4>
 							<table class="table" id="ingredientsTable">
 							</table>
-							<a class="btn btn-primary" href="#" role="button">Confirm dish</a>
+							<a class="btn btn-primary" href="#" role="button" id="confirmDishBtn">Confirm dish</a>
 						</div>
 					</div>
 					<div class="row">
@@ -118,7 +118,128 @@
 				</div>
 			</div>	
 		</div>
-	</div>
+	
+	
+		<div class="row" id="dinnerOverviewView" style="display:none;" >
+				<div class="row">
+					<div class="col-md-6" align="left">
+						<h3>My Dinner: <span>4</span> people</h3>
+					</div>
+					<div class="col-md-6" align="right">
+						<br>
+						<a class="btn btn-default" href="#" role="button" id="backBtn1">Go back and edit dinner</a>	
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="row">
+							<div class="col-md-2 col-md-offset-1"></div> <!-- EMPTY COLUMN -->
+							<div class="col-md-2">
+								<div class="thumbnail_ov">
+									<div class="thumbnail">
+										<img src="..." alt="..." id="starterImage">
+										<div class="caption">
+											<h4 id="starterName">Thumbnail label</h4>
+											<p id="starterPrice">...</p>
+										</div>
+									</div>
+								</div>
+						</div>
+						<div class="col-md-2">
+								<div class="thumbnail_ov">
+									<div class="thumbnail">
+										<img src="..." alt="..." id="mainCourseImage">
+										<div class="caption">
+											<h4 id="mainCourseName">Thumbnail label</h4>
+											<p id="mainCoursePrice">...</p>
+										</div>
+									</div>
+								</div>
+						</div>
+						<div class="col-md-2">
+								<div class="thumbnail_ov">
+									<div class="thumbnail">
+										<img src="..." alt="..." id="dessertImage">
+										<div class="caption">
+											<h4 id="dessertName">Thumbnail label</h4>
+											<p id="dessertPrice">...</p>
+										</div>
+									</div>
+								</div>
+						</div>
+						<div class="col-md-2">
+							<h4>Total:</h4>
+							<p id ="totalPrice">341.20 SEK</p>
+						</div>
+					</div>
+					<hr>
+					<div align="center">
+						<a class="btn btn-primary" href="#" role="button">Print	Full Recipe</a>	
+					</div>
+				</div>
+			</div>
+			
+			<div class="row" id="dinnerPreparationView" style="display:none;">
+				<div class="row">
+					<div class="col-md-6" align="left">
+						<h3>My Dinner: <span id="numberOfGuests"></span> people</h3>
+					</div>
+					<div class="col-md-6" align="right">
+						<br>
+						<a class="btn btn-default" href="#" role="button" id="backBtn2">Go back and edit dinner</a>	
+					</div>
+				</div>
+				<hr>
+				<div class="row">
+					<div class="col-md-2">
+						<img src="..." alt="..." class="img-rounded" id="starterImage">
+					</div>
+					<div class="col-md-4">
+						<h3 id="starterName">LASAGNE</h3>
+						<p id="starterSummary">Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu.</p>
+					</div>
+					<div class="col-md-6">
+						<h5>PREPARATION</h5>
+						<p id="starterPreparation">Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu. Has ea etiam perfecto iudicabit. In vix dico utroque dissentias, eu hinc iriure complectitur his. Pro deseruisse necessitatibus ea, ei labitur dissentiet vis. Legere aeterno cu vis. Mei unum laudem ad. Vide docendi salutatus his ne, ut ornatus constituto vel. In assum indoctum sea, mel lorem bonorum eu. Sea solet regione ea, denique vivendum temporibus his ne.</p>
+					</div>
+				</div>
+				<br>
+				<br>
+				<div class="row">
+					<div class="col-md-2">
+						<img src="..." alt="..." class="img-rounded" id="mainCourseImage">
+					</div>
+					<div class="col-md-4">
+						<h3 id="mainCourseName">FIORENTINA</h3>
+						<p id="mainCourseSummary">Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu.</p>
+					</div>
+					<div class="col-md-6">
+						<h5>PREPARATION</h5>
+						<p id="mainCoursePreparation">Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu. Has ea etiam perfecto iudicabit. In vix dico utroque dissentias, eu hinc iriure complectitur his. Pro deseruisse necessitatibus ea, ei labitur dissentiet vis. Legere aeterno cu vis. Mei unum laudem ad. Vide docendi salutatus his ne, ut ornatus constituto vel. In assum indoctum sea, mel lorem bonorum eu. Sea solet regione ea, denique vivendum temporibus his ne.</p>
+					</div>
+				</div>
+				<br>
+				<br>			
+				<div class="row">
+					<div class="col-md-2">
+						<img src="..." alt="..." class="img-rounded" id="dessertImage">
+					</div>
+					<div class="col-md-4">
+						<h3 id="dessertName">ICECREAM</h3>
+						<p id="dessertSummary">Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu.</p>
+					</div>
+					<div class="col-md-6">
+						<h5>PREPARATION</h5>
+						<p id="dessertPreparation">Lorem ipsum dolor sit amet, at atomorum constituam vis, dignissim scriptorem ei duo. Vis hendrerit urbanitas an. Ei mel postea volutpat, ius vivendo alienum temporibus eu. Has ea etiam perfecto iudicabit. In vix dico utroque dissentias, eu hinc iriure complectitur his. Pro deseruisse necessitatibus ea, ei labitur dissentiet vis. Legere aeterno cu vis. Mei unum laudem ad. Vide docendi salutatus his ne, ut ornatus constituto vel. In assum indoctum sea, mel lorem bonorum eu. Sea solet regione ea, denique vivendum temporibus his ne.</p>
+					</div>
+				</div>
+				<hr>
+				<div align="center">
+					<a class="btn btn-primary" href="#" role="button">Print	Full Recipe</a>	
+				</div>
+			</div>
+			
+		</div> <!-- container -->
 	
 	
 	
@@ -136,9 +257,15 @@
 
 	<!-- The application JavaScript code -->
 	<script src="js/app.js"></script>
+	<!-- The dinner model -->
 	<script src="js/model/dinnerModel.js"></script>
+	<!-- The different views -->
 	<script src="js/view/selectDishView.js"></script>
 	<script src="js/view/lasagneView.js"></script>
+	<script src="js/view/dinnerOverviewView.js"></script>
+	<script src="js/view/dinnerPreparationView.js"></script>
+	<!-- The different controllers -->
 	<script src="js/controller/stateController.js"></script>
+	
   </body>
 </html>

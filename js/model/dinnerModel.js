@@ -56,15 +56,15 @@ var DinnerModel = function() {
 		// Separate the components of the ingredients list and sum up prices
 	 	for(key1 in dishIngredients){
 			for(key2 in dishIngredients[key1]) {
-				console.log("inside list: " + dishIngredients[key1][key2]);
+				//console.log("inside list: " + dishIngredients[key1][key2]);
 				if (key2 == 'price') {
-					console.log("price is: " + dishIngredients[key1][key2]);
+					//console.log("price is: " + dishIngredients[key1][key2]);
 					totalPrice += dishIngredients[key1][key2];
 				}	
 			}
 		}
 			
-		return totalPrice;
+		return totalPrice * numberOfGuests;
 	}
 	
 	//Returns the total price of the menu (all the ingredients multiplied by number of guests).
@@ -72,8 +72,6 @@ var DinnerModel = function() {
 		var totalPrice = 0;
 		var ingredients = this.getAllIngredients();
 		
-		i
-
 		$.each(ingredients, function(index, ingredientList) {
 			
 			$.each(ingredientList, function(ind, ingredient) {

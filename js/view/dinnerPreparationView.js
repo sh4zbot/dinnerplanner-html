@@ -22,7 +22,7 @@ var dishID = 100; // Using dish 100 (meat balls as example). Change here to get 
  
  this.numberOfGuests = container.find("#numberOfGuests");
  
- this.selectedDishes = model.getSelectedDishes(); // Gets selectedDishes through a getter!
+ this.selectedDishes = model.getFullMenu(); // Gets selectedDishes through a getter!
 
 // Fill static elements with HTML code
  this.numberOfGuests.html(model.getNumberOfGuests());

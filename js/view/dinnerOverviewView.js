@@ -19,10 +19,10 @@ var dishID = 100; // Using dish 100 (meat balls as example). Change here to get 
  this.dessertSummary = container.find("#dessertSummary");
  this.dessertPrice = container.find("#dessertPrice");
  this.dessertImage = container.find("#dessertImage");
- 
+ this.totalPrice = container.find("#totalPrice");
  this.numberOfGuests = container.find("#numberOfGuests");
  
- this.selectedDishes = model.getSelectedDishes(); // Gets selectedDishes through a getter!
+ this.selectedDishes = model.getFullMenu(); // Gets selected Dishes through a getter!
 
 
 // Fill static elements with HTML code
@@ -40,7 +40,7 @@ var dishID = 100; // Using dish 100 (meat balls as example). Change here to get 
  this.dessertPrice.html(model.getTotalDishPrice(this.selectedDishes['dessert']) + " SEK");
  this.dessertImage.attr("src", "images/" + model.getDish(this.selectedDishes['dessert']).image);
 
- console.log(model.getTotalDishPrice(1));
+ //console.log(model.getTotalDishPrice(1));
 
 /* DEBUG console.log("imagem: " + this.starterImage.src);
  console.log("id do starter: " + this.selectedDishes['starter']);
@@ -72,6 +72,6 @@ var dishID = 100; // Using dish 100 (meat balls as example). Change here to get 
 
 	//price
 	this.totalPrice.html(model.getTotalMenuPrice() + ".00 SEK");
- console.info("Alou_testando_view");
+	//console.info("Alou_testando_view");
 }
 

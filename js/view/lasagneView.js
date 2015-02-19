@@ -70,7 +70,7 @@ for (var i = 0; i < this.ingredientsList.length; i++) { // Create an empty <tr> 
 
  ingredientsTable.appendChild(table);
 
- console.info("Alou_testando_view");
+ //console.info("Alou_testando_view");
 
 
 	//---selected dishes section----

@@ -9,5 +9,7 @@ $(function() {
 	
 	var selectDishView = new SelectDishView($("#screen2"), model);
 	var lasagneView = new LasagneView($("#screen3"), model);
+	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
+	var dinnerPreparationView = new DinnerPreparationView($("#dinnerPreparationView"), model);
 	
 });
