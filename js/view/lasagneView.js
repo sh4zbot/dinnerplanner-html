@@ -3,10 +3,20 @@ var LasagneView = function (container,model) {
 
 var dishID = 100; // Using ingredient 100 (meat balls as example). Change here to get another one.
  
+
+	model.addObserver(this);
+
+	this.update = function (obj) {
+		//call "bigger" functions that build the view. We may have to embed some code into new functions to call here (see loadShapes() in the drawing example)
+		this.numberOfGuests.html(model.getNumberOfGuests());
+		//alert(model.getNumberOfGuests());	
+	}
+ 
  // Get all the relevant elements of the view (ones that show data
  // and/or ones that responded to interaction)
- 
+
  // Find and bind to a container (static elements, same amount always)
+ this.inputNumber = container.find("#numberOfGuestsInput");
  this.dishName = container.find("#dishName");
  this.dishDescription = container.find("#dishDescription");
  this.numberOfGuests = container.find("#numberOfGuests");

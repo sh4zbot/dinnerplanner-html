@@ -4,13 +4,35 @@ var DinnerModel = function() {
 	//TODO Lab 2 implement the data structure that will hold number of guest
 	// and selected dinner options for dinner menu
 	
+	var observersArray = new Array();
+
 	var numberOfGuests = 4;
 	
 	var selectedDishes = { 'starter' : 1, 'main course':100, 'dessert':200 } ;
 	
+	this.addObserver = function(observer) {
+		observersArray.push(observer);
+		// Debug: print observers
+		for(var i=0; i < observersArray.length; i++) {
+			console.log(observersArray[i]);	
+		}
+	}
+
+	var notifyObservers = function(obj) {
+		// $.each(this.observersArray, function(index,observer) {
+		// 	observer.update(obj);
+		// }
+		for(var i=0; i < observersArray.length; i++) {
+			observersArray[i].update(obj);	
+		}
+		console.log("notified");
+	}
+
+
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
-		alert(num);
+		//alert(num);
+		notifyObservers();
 	}
 
 	this.getNumberOfGuests = function() {

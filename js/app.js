@@ -11,5 +11,7 @@ $(function() {
 	var lasagneView = new LasagneView($("#screen3"), model);
 	var dinnerOverviewView = new DinnerOverviewView($("#dinnerOverviewView"), model);
 	var dinnerPreparationView = new DinnerPreparationView($("#dinnerPreparationView"), model);
+
+	var selectDishController = new SelectDishController(selectDishView, model);
 	
 });

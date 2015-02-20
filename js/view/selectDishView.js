@@ -4,10 +4,22 @@
 
 	var SelectDishView = function (container,model) {
 	
-	//get the Persons input field and set the value from dinnerModel.js
+	model.addObserver(this);
+
+	this.update = function (obj) {
+		//call "bigger" functions that build the view. We may have to embed some code into new functions to call here (see loadShapes() in the drawing example)
+		numberOfGuests.value = model.getNumberOfGuests();
+		//alert(model.getNumberOfGuests());	
+	}
+
+	//testing input controller
+	this.inputNumber = container.find("#numberOfGuestsInput");
+	console.log(this.inputNumber);
+
+	/*//get the Persons input field and set the value from dinnerModel.js
 	this.numberOfGuests = container.find("#numberOfGuests");
 	var numberOfGuests = this.numberOfGuests[0];
-	numberOfGuests.value = model.getNumberOfGuests();
+	numberOfGuests.value = model.getNumberOfGuests();*/
 	
 	// "Selected dishes" section (My dinner, table on left side of screen)
 	this.selectedDishes = container.find("#selectedDishes");
