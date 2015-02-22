@@ -33,7 +33,7 @@ var LasagneView = function (container,model) {
 
 	// Fields of variable size
 	ingredientsList = new Array;
-	ingredientsTable = container.find("#ingredientsTable");
+	ingredientsTableArea = container.find("#tableArea");
 
 	// Fill static elements with HTML code
 	function fillStaticElements () {
@@ -47,14 +47,16 @@ var LasagneView = function (container,model) {
 	function generateIngredientsTable () {
 		// Defines variable-length elements content using model function
 		ingredientsList = model.getDish(dishID).ingredients;
-		var ingredientsTableJS = ingredientsTable[0];
+		var ingredientsTableAreaJS = ingredientsTableArea[0];
 
-		var table = document.createElement('table');
-		table.className += 'table';
+		var table = container.find("#ingredientsTable")[0];
+		table.innerHTML = ""; // Very important!! Clear table each time before creating another one.
 
 		var row = new Array;
 		var cell = new Array;
-		
+		console.log("ingredientsList length: " + ingredientsList);
+		console.log("ingredientsTableJS html: " + ingredientsTableAreaJS);
+
 		for (var i = 0; i < ingredientsList.length; i++) { // Create an empty <tr> element and add it 
 			row[i] = table.insertRow(i);
 			
@@ -80,7 +82,7 @@ var LasagneView = function (container,model) {
 			};
 		};
 
-		ingredientsTableJS.appendChild(table);
+		ingredientsTableAreaJS.appendChild(table);
 	}
 
 	//get the Persons input field and set the value from dinnerModel.js

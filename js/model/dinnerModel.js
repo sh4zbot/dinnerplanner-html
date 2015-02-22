@@ -5,6 +5,7 @@ var DinnerModel = function() {
 	var numberOfGuests = 4;	
 	var selectedDishes = { 'starter' : 1, 'main course':100, 'dessert':200 } ;
 	var chosenDish = 1;
+	var dishType = 'main dish'; // Creating this variable to use in the filter (check for conflicts in the View-Model "paradigm" in which the model doesn't know anything about views)
 	
 	this.addObserver = function(observer) {
 		observersArray.push(observer);
@@ -109,6 +110,16 @@ var DinnerModel = function() {
 		notifyObservers();	
 	}
 
+	// Sets and gets to dishType --> used to filter dishes in select dish view
+	this.getDishType = function () {
+		return dishType;
+	}
+
+	this.setDishType = function (type) {
+		dishType = type;
+		notifyObservers();	
+	}
+
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
@@ -124,6 +135,7 @@ var DinnerModel = function() {
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter) {
+		console.log("getAllDishes type selected: " + type);
 	  return $(dishes).filter(function(index,dish) {
 		var found = true;
 		if(filter){
@@ -365,9 +377,9 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':200,
-		'name':'Chocolat Ice cream',
+		'name':'Chocolate Ice cream',
 		'type':'dessert',
-		'image':'icecream.jpg',
+		'image':'chocolateicecream.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ice cream',
@@ -389,9 +401,9 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':202,
-		'name':'Strawberry',
+		'name':'Apple pie',
 		'type':'dessert',
-		'image':'icecream.jpg',
+		'image':'applepie.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ice cream',
