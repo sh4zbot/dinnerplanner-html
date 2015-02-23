@@ -1,3 +1,26 @@
 ul {
 	list-style-type: none;
 }
+
+img {
+	width: 150px;
+	height: 150px;
+}
+
+#dishList .thumbnail:hover {
+	border-style: solid;
+    border-color: #f65f5f;
+    background-color: #FEF7F7;
+}
+
+#dishList .thumbnail{
+	height: 200px;
+	overflow: hidden;
+}
+
+.thumbnail img {
+	width: 100px;
+	height: 85px;
+}
+
+

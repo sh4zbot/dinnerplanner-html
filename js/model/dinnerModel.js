@@ -1,20 +1,17 @@
 //DinnerModel Object constructor
 var DinnerModel = function() {
- 
-	//TODO Lab 2 implement the data structure that will hold number of guest
-	// and selected dinner options for dinner menu
 	
 	var observersArray = new Array();
-
-	var numberOfGuests = 4;
-	
+	var numberOfGuests = 4;	
 	var selectedDishes = { 'starter' : 1, 'main course':100, 'dessert':200 } ;
+	var chosenDish = 1;
+	var dishType = 'main dish'; // Creating this variable to use in the filter (check for conflicts in the View-Model "paradigm" in which the model doesn't know anything about views)
 	
 	this.addObserver = function(observer) {
 		observersArray.push(observer);
 		// Debug: print observers
 		for(var i=0; i < observersArray.length; i++) {
-			console.log(observersArray[i]);	
+			console.log("these are the observers: " + observersArray[i]);	
 		}
 	}
 
@@ -27,7 +24,6 @@ var DinnerModel = function() {
 		}
 		console.log("notified");
 	}
-
 
 	this.setNumberOfGuests = function(num) {
 		numberOfGuests = num;
@@ -104,6 +100,26 @@ var DinnerModel = function() {
 		return totalPrice*numberOfGuests;
 	}
 
+	// Sets and gets chosen dish --> used to show dish info (lasagne view)
+	this.getChosenDish = function () {
+		return chosenDish;
+	}
+
+	this.setChosenDish = function (id) {
+		chosenDish = id;
+		notifyObservers();	
+	}
+
+	// Sets and gets to dishType --> used to filter dishes in select dish view
+	this.getDishType = function () {
+		return dishType;
+	}
+
+	this.setDishType = function (type) {
+		dishType = type;
+		notifyObservers();	
+	}
+
 	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
@@ -119,6 +135,7 @@ var DinnerModel = function() {
 	//you can use the filter argument to filter out the dish by name or ingredient (use for search)
 	//if you don't pass any filter all the dishes will be returned
 	this.getAllDishes = function (type,filter) {
+		console.log("getAllDishes type selected: " + type);
 	  return $(dishes).filter(function(index,dish) {
 		var found = true;
 		if(filter){
@@ -294,9 +311,9 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':101,
-		'name':'MD 2',
+		'name':'Lasagne',
 		'type':'main dish',
-		'image':'bakedbrie.jpg',
+		'image':'lasagne.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ingredient 1',
@@ -316,9 +333,9 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':102,
-		'name':'MD 3',
+		'name':'Pizza',
 		'type':'main dish',
-		'image':'meatballs.jpg',
+		'image':'pizza.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ingredient 1',
@@ -337,10 +354,10 @@ var DinnerModel = function() {
 			'price':4
 			}]
 		},{
-		'id':102,
-		'name':'MD 4',
+		'id':103,
+		'name':'Grilled Beef',
 		'type':'main dish',
-		'image':'meatballs.jpg',
+		'image':'grilledbeef.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ingredient 1',
@@ -360,9 +377,9 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':200,
-		'name':'Chocolat Ice cream',
+		'name':'Chocolate Ice cream',
 		'type':'dessert',
-		'image':'icecream.jpg',
+		'image':'chocolateicecream.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ice cream',
@@ -384,9 +401,9 @@ var DinnerModel = function() {
 			}]
 		},{
 		'id':202,
-		'name':'Strawberry',
+		'name':'Apple pie',
 		'type':'dessert',
-		'image':'icecream.jpg',
+		'image':'applepie.jpg',
 		'description':"Here is how you make it... Lore ipsum...",
 		'ingredients':[{ 
 			'name':'ice cream',
