@@ -5,8 +5,7 @@ var DinnerOverviewView = function (container,model) {
 
 	model.addObserver(this);
 
-	this.update = function (obj) {
-	}
+	
 
 	this.container = container[0]; //converts jQuery object to Javascript object. "container" is used by StateController to show or hide views
 
@@ -31,12 +30,20 @@ var DinnerOverviewView = function (container,model) {
 
 	var selectedDishes = model.getFullMenu(); // Gets selected Dishes through a getter!
 
+	
 
 	// Fill static elements with HTML code
-	this.numberOfGuests.html(model.getNumberOfGuests());
+	numberOfGuests.html(model.getNumberOfGuests());
 	
 	//hack to access the this.<html container> from inside jQuery $.each loops
 	var that = this;
+	
+	this.update = function (obj) {
+		that.numberOfGuests.html(model.getNumberOfGuests());
+		that.totalPrice.html(model.getTotalMenuPrice() + ".00 SEK");
+		showDishes();
+		//alert(model.getNumberOfGuests());
+	}
 	
 	if ( !('starter' in selectedDishes) ){
 		container.find("#starter").html(""); 
@@ -47,28 +54,32 @@ var DinnerOverviewView = function (container,model) {
 	if ( !('dessert' in selectedDishes) ){
 		container.find("#dessert").html(""); 
 	}	
+
+	showDishes();
 	
-	$.each(selectedDishes, function(index, id) {
-	//alert (index);
-		if (index === 'starter') {
-			that.starterName.html(model.getDish(selectedDishes['starter']).name);
-			that.starterPrice.html(model.getTotalDishPrice(selectedDishes['starter']) + " SEK");
-			that.starterImage.attr("src", "images/" + model.getDish(selectedDishes['starter']).image); // Changes container (selector) src attribute to corresponding in model.dishes through items in the menu
-		}
-		else if (index === 'main course' ) {
-	
-			that.mainCourseName.html(model.getDish(selectedDishes['main course']).name);
-			that.mainCoursePrice.html(model.getTotalDishPrice(selectedDishes['main course']) + " SEK");
-			that.mainCourseImage.attr("src", "images/" + model.getDish(selectedDishes['main course']).image);
+	function showDishes() {
+		$.each(selectedDishes, function(index, id) {
+		//alert (index);
+			if (index === 'starter') {
+				that.starterName.html(model.getDish(selectedDishes['starter']).name);
+				that.starterPrice.html(model.getTotalDishPrice(selectedDishes['starter']) + " SEK");
+				that.starterImage.attr("src", "images/" + model.getDish(selectedDishes['starter']).image); // Changes container (selector) src attribute to corresponding in model.dishes through items in the menu
+			}
+			else if (index === 'main course' ) {
 		
-		}
-		else if (index === 'dessert') {
-		
-			that.dessertName.html(model.getDish(selectedDishes['dessert']).name);
-			that.dessertPrice.html(model.getTotalDishPrice(selectedDishes['dessert']) + " SEK");
-			that.dessertImage.attr("src", "images/" + model.getDish(selectedDishes['dessert']).image);
-		}
-	});
+				that.mainCourseName.html(model.getDish(selectedDishes['main course']).name);
+				that.mainCoursePrice.html(model.getTotalDishPrice(selectedDishes['main course']) + " SEK");
+				that.mainCourseImage.attr("src", "images/" + model.getDish(selectedDishes['main course']).image);
+			
+			}
+			else if (index === 'dessert') {
+			
+				that.dessertName.html(model.getDish(selectedDishes['dessert']).name);
+				that.dessertPrice.html(model.getTotalDishPrice(selectedDishes['dessert']) + " SEK");
+				that.dessertImage.attr("src", "images/" + model.getDish(selectedDishes['dessert']).image);
+			}
+		});
+	}
 	
 	/*
 	this.starterName.html(model.getDish(this.selectedDishes['starter']).name);
