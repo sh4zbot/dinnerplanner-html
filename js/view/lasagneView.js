@@ -65,7 +65,7 @@ var LasagneView = function (container,model) {
 				// Fills cell with content depending on the position (0 to 3) according to sketch 
 				switch(j) {
 				    case 0:
-				        cell[j].innerHTML = ingredientsList[i]['quantity'] + " " + this.ingredientsList[i]['unit'];
+				        cell[j].innerHTML = (ingredientsList[i]['quantity']*model.getNumberOfGuests()).toFixed(1) + " " + this.ingredientsList[i]['unit'];
 				        break;
 				    case 1:
 				        cell[j].innerHTML = ingredientsList[i]['name'];
@@ -74,7 +74,7 @@ var LasagneView = function (container,model) {
 				        cell[j].innerHTML = "SEK";
 				        break;
 				    case 3:
-				        cell[j].innerHTML = ingredientsList[i]['price'];
+				        cell[j].innerHTML = (ingredientsList[i]['price']*model.getNumberOfGuests()).toFixed(0);
 				        break;
 				    default:
 				        "error here";

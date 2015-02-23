@@ -4,6 +4,12 @@ var LeftBarController = function(view, model, stateController) {
 		model.setNumberOfGuests(view.inputNumber.val());
 	});
 
+	view.inputNumber.keypress(function (e) {
+    	if (e.which == 13) {
+    		model.setDishType($(this).text());	
+    	}
+    });
+
 
 
 /* view.plusButton.click(function(){
