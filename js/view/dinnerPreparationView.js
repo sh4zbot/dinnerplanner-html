@@ -28,6 +28,25 @@ var DinnerPreparationView = function (container,model) {
 	// Fill static elements with HTML code
 	this.numberOfGuests.html(model.getNumberOfGuests());
 
+	$.each(selectedDishes, function(type, id) {
+		if (type === 'starter') {
+			this.starterName.html(model.getDish(this.selectedDishes['starter']).name);
+			this.starterPrice.html(model.getTotalDishPrice(this.selectedDishes['starter']) + " SEK");
+			this.starterImage.attr("src", "images/" + model.getDish(this.selectedDishes['starter']).image); // Changes container (selector) src attribute to corresponding in model.dishes through items in the menu
+		}
+		else if (type === 'main course' ) {
+			this.mainCourseName.html(model.getDish(this.selectedDishes['main course']).name);
+			this.mainCoursePrice.html(model.getTotalDishPrice(this.selectedDishes['main course']) + " SEK");
+			this.mainCourseImage.attr("src", "images/" + model.getDish(this.selectedDishes['main course']).image);
+		}
+		else if (type === 'dessert') {
+			this.dessertName.html(model.getDish(this.selectedDishes['dessert']).name);
+			this.dessertPrice.html(model.getTotalDishPrice(this.selectedDishes['dessert']) + " SEK");
+			this.dessertImage.attr("src", "images/" + model.getDish(this.selectedDishes['dessert']).image);
+		}
+	});
+	
+	/*
 	this.starterName.html(model.getDish(this.selectedDishes['starter']).name);
 	this.starterPreparation.html(model.getDish(this.selectedDishes['starter']).description);
 	this.starterImage.attr("src", "images/" + model.getDish(this.selectedDishes['starter']).image); // Changes container (selector) src attribute to corresponding in model.dishes through items in the menu
@@ -39,7 +58,8 @@ var DinnerPreparationView = function (container,model) {
 	this.dessertName.html(model.getDish(this.selectedDishes['dessert']).name);
 	this.dessertPreparation.html(model.getDish(this.selectedDishes['dessert']).description);
 	this.dessertImage.attr("src", "images/" + model.getDish(this.selectedDishes['dessert']).image);
-
+	*/
+	
 	// Defines variable-length elements content using model function
 	this.ingredientsList = model.getDish(dishID).ingredients;
 }
