@@ -12,3 +12,15 @@ img {
     border-color: #f65f5f;
     background-color: #FEF7F7;
 }
+
+#dishList .thumbnail{
+	height: 200px;
+	overflow: hidden;
+}
+
+.thumbnail img {
+	width: 100px;
+	height: 85px;
+}
+
+
