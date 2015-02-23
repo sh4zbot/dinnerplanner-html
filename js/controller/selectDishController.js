@@ -6,7 +6,6 @@ var SelectDishController = function(view, model, stateController) {
  		//console.log("ID jQuery  : " + id); // debug
  		model.setChosenDish(id);
  		//console.log("changed chosen dish: " + model.getChosenDish()); // debug
- 		
  		stateController.changeToView(3); // Change to lasagneView	
 	});
 

@@ -30,6 +30,7 @@ var LasagneView = function (container,model) {
 	numberOfGuests = container.find("#numberOfGuests");
 	imgDish = container.find("#imgDish");
 	this.backButton = container.find("#backButton"); // Exception with this, only used in the controller
+	this.confirmDishBtn = container.find("#confirmDishBtn");
 
 	// Fields of variable size
 	ingredientsList = new Array;
@@ -65,8 +66,8 @@ var LasagneView = function (container,model) {
 				// Fills cell with content depending on the position (0 to 3) according to sketch 
 				switch(j) {
 				    case 0:
-				        cell[j].innerHTML = (ingredientsList[i]['quantity']*model.getNumberOfGuests()).toFixed(1) + " " + this.ingredientsList[i]['unit'];
-				        break;
+				        cell[j].innerHTML = (ingredientsList[i]['quantity']*model.getNumberOfGuests()).toFixed(1).replace(/[.,]0$/, "") + " " + this.ingredientsList[i]['unit'];
+				        break;  // First part of code above makes sure every number has only 1 decimal digit. If the digit is 0 (exact number), it removes the decimal notation.
 				    case 1:
 				        cell[j].innerHTML = ingredientsList[i]['name'];
 				        break;

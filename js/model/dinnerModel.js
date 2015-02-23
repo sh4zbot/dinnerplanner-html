@@ -131,11 +131,13 @@ var DinnerModel = function() {
 	//it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
 		selectedDishes[ this.getDish(id)['type'] ] = id;
+		notifyObservers();
 	}
 
 	//Removes dish from menu
 	this.removeDishFromMenu = function(id) {
 		selectedDishes[getDish(id)['type'] ] = 0;
+		notifyObservers();
 	}
 
 	//function that returns all dishes of specific type (i.e. "starter", "main dish" or "dessert")
