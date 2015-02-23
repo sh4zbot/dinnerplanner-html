@@ -29,6 +29,9 @@ var DinnerOverviewView = function (container,model) {
 	this.numberOfGuests = container.find("#numberOfGuests");
 
 	var selectedDishes = model.getFullMenu(); // Gets selected Dishes through a getter!
+	
+	this.printButton = container.find("#printBtn"); // Exception with this, only used in the controller
+	this.backButton = container.find("#backButton"); // Exception with this, only used in the controller
 
 	
 
