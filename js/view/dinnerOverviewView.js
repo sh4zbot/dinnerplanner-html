@@ -5,8 +5,6 @@ var DinnerOverviewView = function (container,model) {
 
 	model.addObserver(this);
 
-	
-
 	this.container = container[0]; //converts jQuery object to Javascript object. "container" is used by StateController to show or hide views
 
 	// Get all the relevant elements of the view (ones that show data
@@ -44,10 +42,13 @@ var DinnerOverviewView = function (container,model) {
 	this.update = function (obj) {
 		that.numberOfGuests.html(model.getNumberOfGuests());
 		that.totalPrice.html(model.getTotalMenuPrice() + ".00 SEK");
+		selectedDishes = model.getFullMenu();
 		showDishes();
 		//alert(model.getNumberOfGuests());
 	}
 	
+	
+	/*
 	if ( !('starter' in selectedDishes) ){
 		container.find("#starter").html(""); 
 	}	
@@ -57,16 +58,74 @@ var DinnerOverviewView = function (container,model) {
 	if ( !('dessert' in selectedDishes) ){
 		container.find("#dessert").html(""); 
 	}	
+	*/
+	container.find("#starter")[0].innerHTML = "";
+	container.find("#maincourse")[0].innerHTML = "";
+	container.find("#dessert")[0].innerHTML = "";
 
 	showDishes();
 	
 	function showDishes() {
 		$.each(selectedDishes, function(index, id) {
-		//alert (index);
+			var thumbnail_ov = document.createElement('div');
+			thumbnail_ov.className = "thumbnail_ov";
+				var thumbnail = document.createElement('div');
+				thumbnail.className = "thumbnail";
+					var img = new Image();
+					img.src= ('images/' + model.getDish(selectedDishes[index]).image);
+					thumbnail.appendChild(img);
+					
+					var caption = document.createElement('div');
+						var h4 = document.createElement('h4');
+						var text = document.createTextNode(model.getDish(selectedDishes[index]).name);
+						h4.appendChild(text);
+						
+						var p = document.createElement('p');
+						var price = document.createTextNode(model.getTotalDishPrice(selectedDishes[index]) + ".00 SEK");
+						p.appendChild(price)
+						
+						caption.appendChild(h4);
+						caption.appendChild(p);
+					thumbnail.appendChild(caption);
+				thumbnail_ov.appendChild(thumbnail);
+				
+			if (index === 'starter') { 
+				//clear out previous html in the div
+				container.find("#starter")[0].innerHTML = "";
+				container.find("#starter")[0].appendChild(thumbnail_ov);
+			}
+			else if (index === 'main course') {
+			//clear out previous html in the div
+				container.find("#maincourse")[0].innerHTML = "";
+				container.find("#maincourse")[0].appendChild(thumbnail_ov);
+			}
+			else if (index === 'dessert') {
+			//clear out previous html in the div
+				container.find("#dessert")[0].innerHTML = "";
+				container.find("#dessert")[0].appendChild(thumbnail_ov);
+			}
+			
+			/*
 			if (index === 'starter') {
-				that.starterName.html(model.getDish(selectedDishes['starter']).name);
-				that.starterPrice.html(model.getTotalDishPrice(selectedDishes['starter']) + " SEK");
-				that.starterImage.attr("src", "images/" + model.getDish(selectedDishes['starter']).image); // Changes container (selector) src attribute to corresponding in model.dishes through items in the menu
+				//clear out previous html in the div
+				container.find("#starter").html = "";
+				var thumbnail_ov = document.createElement('div');
+				thumbnail_ov.className += "thumbnail_ov";
+					var thumbnail = document.createElement('div');
+					thumbnail.className += "thumbnail";
+						var img = new Image();
+						img.src= ('images/' + model.getDish(selectedDishes['starter']).image);
+						thumbnail.appendChild(img);
+						
+						var caption = document.createElement('div');
+							var h4 = document.createElement('h4');
+							var text = document.createTextNode(model.getDish(selectedDishes['starter']).name);
+							h4.appendChild(text);
+							caption.appendChild(h4);
+						thumbnail.appendChild(caption);
+					thumbnail_ov.appendChild(thumbnail);
+				container.find("#starter")[0].appendChild(thumbnail_ov);
+		
 			}
 			else if (index === 'main course' ) {
 		
@@ -81,6 +140,7 @@ var DinnerOverviewView = function (container,model) {
 				that.dessertPrice.html(model.getTotalDishPrice(selectedDishes['dessert']) + " SEK");
 				that.dessertImage.attr("src", "images/" + model.getDish(selectedDishes['dessert']).image);
 			}
+			*/
 		});
 	}
 	

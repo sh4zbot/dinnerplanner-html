@@ -3,7 +3,7 @@ var DinnerModel = function() {
 	
 	var observersArray = new Array();
 	var numberOfGuests = 4;	
-	var selectedDishes = { 'starter' : 1, 'main course':0, 'dessert':0 } ;
+	var selectedDishes = { 'starter' : 1, 'main course':100, 'dessert':0 } ;
 	var chosenDish = 1;
 	var dishType = 'Main dish'; // Creating this variable to use in the filter (check for conflicts in the View-Model "paradigm" in which the model doesn't know anything about views)
 	
