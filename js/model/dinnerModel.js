@@ -5,7 +5,7 @@ var DinnerModel = function() {
 	var numberOfGuests = 4;	
 	var selectedDishes = { 'starter' : 1, 'main course':100, 'dessert':200 } ;
 	var chosenDish = 1;
-	var dishType = 'main dish'; // Creating this variable to use in the filter (check for conflicts in the View-Model "paradigm" in which the model doesn't know anything about views)
+	var dishType = 'Main dish'; // Creating this variable to use in the filter (check for conflicts in the View-Model "paradigm" in which the model doesn't know anything about views)
 	
 	this.addObserver = function(observer) {
 		observersArray.push(observer);

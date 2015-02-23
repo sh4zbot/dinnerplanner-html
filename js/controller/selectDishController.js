@@ -12,7 +12,7 @@ var SelectDishController = function(view, model, stateController) {
 
 	// Gets the click on the drop-down menu item and passes its text as the new dish type to the model
 	view.dropDownBtn.on('click', '.dropdown-menu li a', function () {
-    	model.setDishType($(this).text().toLowerCase());
+    	model.setDishType($(this).text());
     });
 
 }

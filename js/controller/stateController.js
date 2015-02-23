@@ -57,11 +57,11 @@ var StateController = function(views) {
 	// 	swap('dinnerPreparationView','screen1');
 	// });
 	
-		$.each(views, function(index, view) {		
-			console.log("chuva de views: " + view.constructor.name);
-		});	
+	$.each(views, function(index, view) {		
+		console.log("chuva de views: " + view.constructor.name);
+	});	
 
-		this.changeToView = function (screen) {
+	this.changeToView = function (screen) {
 		hideAll();
 		show(views[Object.keys(views)[screen]]); 
 		

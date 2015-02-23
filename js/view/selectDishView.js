@@ -13,16 +13,18 @@ var SelectDishView = function (container,model) {
 		//call "bigger" functions that build the view. We may have to embed some code into new functions to call here (see loadShapes() in the drawing example)
 		numberOfGuests.value = model.getNumberOfGuests();
 		generateDishList();
-		//alert(model.getNumberOfGuests());	
+		this.dropDownInput[0].value = model.getDishType();
 	}
 
 	/*//get the Persons input field and set the value from dinnerModel.js
 	this.numberOfGuests = container.find("#numberOfGuests");
 	var numberOfGuests = this.numberOfGuests[0];
 	numberOfGuests.value = model.getNumberOfGuests();*/
-	
+
 	// Buttons
 	this.dropDownBtn = container.find("#dropDownBtn");
+	this.dropDownInput = container.find("#dropDownInput");
+	this.dropDownInput[0].value = model.getDishType(); // Sets the text for initial state (main dish selected)
 
 	//Dishes with thumbnails, names and descriptions
 	this.dishList = container.find("#dishList");
@@ -36,9 +38,7 @@ var SelectDishView = function (container,model) {
 	
 	function generateDishList () {
 
-		var allDishes = model.getAllDishes(model.getDishType());
-    	console.log("generateDishList dish type:" + model.getDishType());
-
+		var allDishes = model.getAllDishes(model.getDishType().toLowerCase());
 
 		//clear DIV and arrays to start again
 		dishList.innerHTML = "";
