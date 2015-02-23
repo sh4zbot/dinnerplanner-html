@@ -11,7 +11,6 @@ var LeftBarController = function(view, model, stateController) {
     });
 
 
-
 /* view.plusButton.click(function(){
  model.setNumberOfGuests(model.getNumberOfGuests() + 1);
  });

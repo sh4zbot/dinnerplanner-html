@@ -11,6 +11,7 @@ var LasagneView = function (container,model) {
  	this.container = container[0]; //converts jQuery object to Javascript object. "container" is used by StateController to show or hide views
 
 	model.addObserver(this);
+	
 	this.update = function (obj) {
 		//call "bigger" functions that build the view. We may have to embed some code into new functions to call here (see loadShapes() in 
 		//the drawing example)
