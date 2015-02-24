@@ -1,7 +1,7 @@
 //DinnerPreparationView Object constructor
 var DinnerOverviewView = function (container,model) {
 
-	var dishID = 100; // Using dish 100 (meat balls as example). Change here to get another one.	
+	//var dishID = 100; // Using dish 100 (meat balls as example). Change here to get another one.	
 
 	model.addObserver(this);
 
@@ -67,6 +67,7 @@ var DinnerOverviewView = function (container,model) {
 	
 	function showDishes() {
 		$.each(selectedDishes, function(index, id) {
+			alert(index);
 			var thumbnail_ov = document.createElement('div');
 			thumbnail_ov.className = "thumbnail_ov";
 				var thumbnail = document.createElement('div');
@@ -94,7 +95,7 @@ var DinnerOverviewView = function (container,model) {
 				container.find("#starter")[0].innerHTML = "";
 				container.find("#starter")[0].appendChild(thumbnail_ov);
 			}
-			else if (index === 'main course') {
+			else if (index === 'main dish') {
 			//clear out previous html in the div
 				container.find("#maincourse")[0].innerHTML = "";
 				container.find("#maincourse")[0].appendChild(thumbnail_ov);
@@ -159,7 +160,7 @@ var DinnerOverviewView = function (container,model) {
 	*/
 	
 	// Defines variable-length elements content using model function
-	this.ingredientsList = model.getDish(dishID).ingredients;
+	// this.ingredientsList = model.getDish(dishID).ingredients;
 
 	/* DEBUG // Separate the components of the ingredients list
 	for(key1 in this.ingredientsList){
