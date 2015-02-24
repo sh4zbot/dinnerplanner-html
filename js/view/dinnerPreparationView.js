@@ -33,6 +33,8 @@ var DinnerPreparationView = function (container,model) {
 	// Fill static elements with HTML code
 	this.numberOfGuests.html(model.getNumberOfGuests());
 
+	//used with the ingredients table setup
+	ingredientsList = new Array;
 	
 	//Update by Johan start
 	var that = this;
@@ -72,6 +74,8 @@ var DinnerPreparationView = function (container,model) {
 				column2.appendChild(h3);
 				column2.appendChild(p);
 			
+			//------------DOUBLE DESCRIPTION SETUP START------------------
+			/* 
 			var column3 = document.createElement('div');
 				column3.className = "col-md-6";
 				var h3 = document.createElement('h3');
@@ -84,8 +88,60 @@ var DinnerPreparationView = function (container,model) {
 				
 				column3.appendChild(h3);
 				column3.appendChild(p);
-				
+			*/
+			//------------DOUBLE DESCRIPTION SETUP END------------------
 			
+			//------------INGREDIENTS TABLE VERSION START-----------------
+			var column3 = document.createElement('div');
+				column3.className = "col-md-6";
+				var h3 = document.createElement('h3');
+				var text = document.createTextNode("Ingredients for " + model.getNumberOfGuests() + " people");
+				h3.appendChild(text);
+				column3.appendChild(h3);
+				
+				
+				ingredientsList = model.getDish(id).ingredients;
+				//var ingredientsTableAreaJS = ingredientsTableArea[0];
+
+				var table = document.createElement('table'); //container.find("#ingredientsTable")[0];
+				table.className = "table";
+				table.innerHTML = ""; // Very important!! Clear table each time before creating another one.
+
+				var row = new Array;
+				var cell = new Array;
+				//console.log("ingredientsList length: " + ingredientsList);
+				//console.log("column3 html: " + column3);
+
+				for (var i = 0; i < ingredientsList.length; i++) { // Create an empty <tr> element and add it 
+					row[i] = table.insertRow(i);
+					
+					for (var j = 0; j < 4; j++) { // Insert new cells (<td> elements) at the created row <tr> above
+						cell[j] = row[i].insertCell(j);
+						// Fills cell with content depending on the position (0 to 3) according to sketch 
+						console.log(cell[j] + ingredientsList[i]['quantity'] );
+						switch(j) {
+								case 0:
+										cell[j].innerHTML = (ingredientsList[i]['quantity']*model.getNumberOfGuests()).toFixed(1).replace(/[.,]0$/, "") + " " + ingredientsList[i]['unit'];
+										break;  // First part of code above makes sure every number has only 1 decimal digit. If the digit is 0 (exact number), it removes the decimal notation.
+								case 1:
+										cell[j].innerHTML = ingredientsList[i]['name'];
+										break;
+								case 2:
+										cell[j].innerHTML = "SEK";
+										break;
+								case 3:
+										cell[j].innerHTML = (ingredientsList[i]['price']*model.getNumberOfGuests()).toFixed(0);
+										break;
+								default:
+										"error here";
+						}
+					};
+				};
+
+				column3.appendChild(table);
+				
+			//------------INGREDIENTS TABLE VERSION END-----------------
+				
 				
 			if (index === 'starter') { 
 				//clear out previous html in the div
@@ -111,6 +167,49 @@ var DinnerPreparationView = function (container,model) {
 			
 		});
 	}
+	
+	/*
+	function generateIngredientsTable () {
+		// Defines variable-length elements content using model function
+		ingredientsList = model.getDish(dishID).ingredients;
+		var ingredientsTableAreaJS = ingredientsTableArea[0];
+
+		var table = container.find("#ingredientsTable")[0];
+		table.innerHTML = ""; // Very important!! Clear table each time before creating another one.
+
+		var row = new Array;
+		var cell = new Array;
+		console.log("ingredientsList length: " + ingredientsList);
+		console.log("ingredientsTableJS html: " + ingredientsTableAreaJS);
+
+		for (var i = 0; i < ingredientsList.length; i++) { // Create an empty <tr> element and add it 
+			row[i] = table.insertRow(i);
+			
+			for (var j = 0; j < 4; j++) { // Insert new cells (<td> elements) at the created row <tr> above
+				cell[j] = row[i].insertCell(j);
+				// Fills cell with content depending on the position (0 to 3) according to sketch 
+				switch(j) {
+				    case 0:
+				        cell[j].innerHTML = (ingredientsList[i]['quantity']*model.getNumberOfGuests()).toFixed(1).replace(/[.,]0$/, "") + " " + this.ingredientsList[i]['unit'];
+				        break;  // First part of code above makes sure every number has only 1 decimal digit. If the digit is 0 (exact number), it removes the decimal notation.
+				    case 1:
+				        cell[j].innerHTML = ingredientsList[i]['name'];
+				        break;
+				    case 2:
+				        cell[j].innerHTML = "SEK";
+				        break;
+				    case 3:
+				        cell[j].innerHTML = (ingredientsList[i]['price']*model.getNumberOfGuests()).toFixed(0);
+				        break;
+				    default:
+				        "error here";
+				}
+			};
+		};
+
+		ingredientsTableAreaJS.appendChild(table);
+	}
+	*/
 	
 	/*
 	

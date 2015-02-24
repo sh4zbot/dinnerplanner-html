@@ -56,8 +56,8 @@ var LasagneView = function (container,model) {
 
 		var row = new Array;
 		var cell = new Array;
-		console.log("ingredientsList length: " + ingredientsList);
-		console.log("ingredientsTableJS html: " + ingredientsTableAreaJS);
+		//console.log("ingredientsList length: " + ingredientsList);
+		//console.log("ingredientsTableJS html: " + ingredientsTableAreaJS);
 
 		for (var i = 0; i < ingredientsList.length; i++) { // Create an empty <tr> element and add it 
 			row[i] = table.insertRow(i);
