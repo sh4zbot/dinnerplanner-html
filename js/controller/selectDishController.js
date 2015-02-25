@@ -14,6 +14,12 @@ var SelectDishController = function(view, model, stateController) {
     	model.setDishType($(this).text());
     });
 
+    view.dropDownInput.keypress(function (e) {
+    	if (e.which == 13) {
+	    	model.setDishType(view.dropDownInput.val());
+    	}
+    });
+
     view.searchBtn.on('click', function () {
     	//console.log("this is the search: " + view.searchInput.val());
     	model.setDishSearch(view.searchInput.val());
