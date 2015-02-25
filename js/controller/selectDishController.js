@@ -19,4 +19,10 @@ var SelectDishController = function(view, model, stateController) {
     	model.setDishSearch(view.searchInput.val());
     });
 
+    view.searchInput.keypress(function (e) {
+    	if (e.which == 13) {
+	    	model.setDishSearch(view.searchInput.val());
+    	}
+    });
+
 }
