@@ -10,6 +10,8 @@ var LeftBarView = function (container,model) {
 	}
 
 	this.inputNumber = container.find("#numberOfGuestsInput");
+	this.inputNumber[0].value = model.getNumberOfGuests();
+
 	this.confirmDinnerBtn = container.find("#confirmDinnerBtn");
 
 

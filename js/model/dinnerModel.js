@@ -2,10 +2,11 @@
 var DinnerModel = function() {
 	
 	var observersArray = new Array();
-	var numberOfGuests = 4;	
+	var numberOfGuests = 2;	
 	var selectedDishes = { 'starter' : 0, 'main course':0, 'dessert':0 } ;
 	var chosenDish = 1;
 	var dishType = 'Main dish'; // Creating this variable to use in the filter (check for conflicts in the View-Model "paradigm" in which the model doesn't know anything about views)
+	var dishSearch = '';
 	
 	this.addObserver = function(observer) {
 		observersArray.push(observer);
@@ -124,6 +125,16 @@ var DinnerModel = function() {
 
 	this.setDishType = function (type) {
 		dishType = type;
+		notifyObservers();	
+	}
+
+	// Sets and gets to dishSearch --> used to filter dishes in select dish view
+	this.getDishSearch = function () {
+		return dishSearch;
+	}
+
+	this.setDishSearch = function (search) {
+		dishSearch = search;
 		notifyObservers();	
 	}
 

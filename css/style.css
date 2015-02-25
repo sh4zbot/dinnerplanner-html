@@ -24,4 +24,16 @@ div .thumbnail img {
 	height: 90px;
 }
 
+#ingredientsTableDiv {
+	background-color: #FFFFED;
+	padding: 10px;
+	border-color: #FFCC00;
+	border-style: solid;
+	border-width: thin;
+}
 
+#confirmDishBtn {
+	background-color: #FFCC00;
+	border-color: #E6B800;
+	color: #555;
+}

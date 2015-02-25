@@ -26,6 +26,9 @@ var SelectDishView = function (container,model) {
 	this.dropDownInput = container.find("#dropDownInput");
 	this.dropDownInput[0].value = model.getDishType(); // Sets the text for initial state (main dish selected)
 
+	this.searchBtn = container.find("#searchBtn");
+	this.searchInput = container.find("#searchInput");
+
 	//Dishes with thumbnails, names and descriptions
 	this.dishList = container.find("#dishList");
 	var dishList = this.dishList[0];
@@ -38,7 +41,9 @@ var SelectDishView = function (container,model) {
 	
 	function generateDishList () {
 
-		var allDishes = model.getAllDishes(model.getDishType().toLowerCase());
+		var allDishes = model.getAllDishes(model.getDishType().toLowerCase(), model.getDishSearch());
+
+		console.log("search argument: " + model.getDishSearch());
 
 		//clear DIV and arrays to start again
 		dishList.innerHTML = "";

@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dinner</title>
+    <title>A Home Dinner Service</title>
 
     <!-- Bootstrap CSS -->
     <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
@@ -30,7 +30,7 @@
 		
 		<div class="row" id="homeView" style="display:block">
 			<div class="col-md-6">
-				<h2> A home dinner service </h2>
+				<h2> A Home Dinner Service </h2>
 				<hr/>
 				<p> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id eros sit amet nisl convallis pharetra. Vestibulum euismod turpis ut diam pellentesque, ac faucibus neque bibendum. Aliquam erat volutpat. Suspendisse vel eros neque. Cras convallis, eros in mattis egestas, felis eros pretium dui, sit amet pharetra velit dui vitae turpis. Morbi ut urna nibh. Duis id lacus vehicula, congue eros sed, dignissim orci. Proin bibendum nulla eu erat tristique egestas. Vivamus rhoncus, risus vehicula hendrerit luctus, nisl est posuere turpis, eu dapibus elit urna et quam. Ut molestie metus eget augue viverra bibendum. Vestibulum eget cursus magna. </p>
 				<p> start quickly </p>
@@ -59,9 +59,9 @@
 							<div class="row">
 							    <div class="col-lg-4">
 							    <div class="input-group">
-							      <input type="text" class="form-control" placeholder="Search for...">
+							      <input type="text" class="form-control" placeholder="Search for..." id="searchInput">
 							      <span class="input-group-btn">
-							        <button class="btn btn-default" type="button">Search</button>
+							        <button class="btn btn-default" type="button" id="searchBtn">Search</button>
 							      </span>
 							    </div><!-- /input-group -->
 							  </div><!-- /.col-lg-6 -->
@@ -100,7 +100,7 @@
 							<p><span id="dishSummary">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id eros sit amet nisl convallis pharetra. Vestibulum euismod turpis ut diam pellentesque, ac faucibus neque bibendum. Aliquam erat volutpat. Suspendisse vel eros neque. Cras convallis, eros in mattis egestas, felis eros pretium dui, sit amet pharetra velit dui vitae turpis. Morbi ut urna nibh.</span></p>
 							<a class="btn btn-default" href="#" role="button" id="backButton">back to Select Dish</a>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6" id="ingredientsTableDiv">
 							<h4>Ingredients for <span id="numberOfGuests"></span> people</h4>
 							<div id="tableArea">
 								<table class="table" id="ingredientsTable">
