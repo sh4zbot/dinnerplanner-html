@@ -34,17 +34,18 @@ var StateController = function(views) {
 
 	*** Think about a more reliable/elegant way to do this screen control
 */
-
+/*
 	document.getElementById('createDinnerBtn').addEventListener('click',function(e){
 		hideAll(); 
 		//show(views.leftBarView); // it's the same as below
 		show(views[Object.keys(views)[1]]); 
 		show(views.selectDishView);
 	});
-/*	document.getElementById('confirmDinnerBtn').addEventListener('click',function(e){
+	document.getElementById('confirmDinnerBtn').addEventListener('click',function(e){
 	 	hideAll();
 	 	show(views.dinnerOverviewView);
-	});*/
+	});
+*/
 	// document.getElementById('confirmDinnerBtn2').addEventListener('click',function(e){
 	// 	hide('selectDishView');
 	// 	hide('leftBarView');
