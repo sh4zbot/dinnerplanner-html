@@ -41,10 +41,10 @@ var StateController = function(views) {
 		show(views[Object.keys(views)[1]]); 
 		show(views.selectDishView);
 	});
-	document.getElementById('confirmDinnerBtn').addEventListener('click',function(e){
+/*	document.getElementById('confirmDinnerBtn').addEventListener('click',function(e){
 	 	hideAll();
 	 	show(views.dinnerOverviewView);
-	});
+	});*/
 	// document.getElementById('confirmDinnerBtn2').addEventListener('click',function(e){
 	// 	hide('selectDishView');
 	// 	hide('leftBarView');

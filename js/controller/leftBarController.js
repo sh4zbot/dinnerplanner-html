@@ -10,12 +10,7 @@ var LeftBarController = function(view, model, stateController) {
     	}
     });
 
-
-/* view.plusButton.click(function(){
- model.setNumberOfGuests(model.getNumberOfGuests() + 1);
- });
- 
- view.minusButton.click(function(){
- model.setNumberOfGuests(model.getNumberOfGuests() - 1);
- });*/
+    view.confirmDinnerBtn.click(function () { 
+		stateController.changeToView(4);
+	});
 }

@@ -7,20 +7,21 @@ img {
 	height: 150px;
 }
 
-#dishList .thumbnail:hover {
+div .thumbnail:hover {
 	border-style: solid;
     border-color: #f65f5f;
     background-color: #FEF7F7;
 }
 
-#dishList .thumbnail{
+div .thumbnail{
 	height: 200px;
+	width: 120px;
 	overflow: hidden;
 }
 
-.thumbnail img {
-	width: 100px;
-	height: 85px;
+div .thumbnail img {
+	width: 120px;
+	height: 90px;
 }
 
 

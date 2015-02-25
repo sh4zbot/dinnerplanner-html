@@ -10,6 +10,7 @@ var LeftBarView = function (container,model) {
 	}
 
 	this.inputNumber = container.find("#numberOfGuestsInput");
+	this.confirmDinnerBtn = container.find("#confirmDinnerBtn");
 
 
 	// "Selected dishes" section (My dinner, table on left side of screen)
