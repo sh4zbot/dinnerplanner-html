@@ -34,6 +34,7 @@ $(function() {
 	var stateController 			= new StateController(viewsArray);
 	
 	// Each view has a controller. Each controller receives the respec. view, model and stateController obj.
+	var homeController 				= new HomeController(homeView, model, stateController);
 	var leftBarController 			= new LeftBarController(leftBarView, model, stateController);
 	var selectDishController 		= new SelectDishController(selectDishView, model, stateController);
 	var lasagneController 			= new LasagneController(lasagneView, model, stateController);
